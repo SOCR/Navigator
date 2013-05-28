@@ -8,7 +8,7 @@ Navigator will be created in HTML5 and will start with created a spring embedded
 The previous directory system is written in 'java' and is outdated. After updating the [SOCR](http://socr.ucla.edu), 
 we will expand the script to take in any xml directory and convert it to a newer spring embedded directory.
 
-##Packages
+##Packages/Technologies
 
 [`Bootstrap`](twitter.github.com/bootstrap/) 
 [`HTML5`](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
@@ -29,5 +29,3 @@ SOCR resources are distributed in the hope that they will be useful, but without
 any warranty; without any explicit, implicit or implied warranty for merchantability or
 fitness for a particular purpose. See the GNU Lesser General Public License for
 more details see http://opensource.org/licenses/lgpl-license.php.
-
-test1
