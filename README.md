@@ -1,7 +1,7 @@
 Navigator
 =========
 
-The navigator will take xml files, placing the data into json, and create spring embedded directory systems using arbor.js.
+The navigator will take .xml files, placing the data into json, and create spring embedded directory systems using arbor.js.
 
 ##Goal
 Navigator will be created in HTML5 and will start with created a spring embedded system from [SOCR](http://socr.ucla.edu), Statistics Online Computational Resource .
