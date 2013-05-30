@@ -87,7 +87,10 @@
           <div class="hero-unit">
             <h1>Navigator Tool</h1>
             <p>Tool creates a spring embedded directory from an xml directory.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            <form action="xml_url">
+              Input URL of XML code: <textarea rows="10" cols="30" name="input_url" id="xmlInput"></textarea>
+            </form>
+            <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
           </div>
           </div><!--/row-->
         </div><!--/span-->
@@ -106,7 +109,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-1.10.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/navigator.js"></script>
 
   </body>
 </html>
