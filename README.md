@@ -1,7 +1,7 @@
 Navigator
 =========
 
-The navigator will take .xml files, placing the data into json, and create spring embedded directory systems using arbor.js.
+The navigator will take .xml files, placing the data into json, and create a graph visualization of the data using arbor.js.
 
 ##Goal
 Navigator will be created in HTML5 and will start with created a spring embedded system from [SOCR](http://socr.ucla.edu), Statistics Online Computational Resource .
@@ -12,13 +12,13 @@ we will expand the script to take in any xml directory and convert it to a newer
 
 [`Bootstrap`](twitter.github.com/bootstrap/) 
 [`HTML5`](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-[`Jquery`](jquery.com)
+[`jQuery`](jquery.com)
 
 ##Copyright and License
 
 **The LGPL License**
 
-Copyright (c) 2012 Statistics Online Computational Resource (SOCR) &lt;http://www.StatisticsResource.org&gt;
+Copyright (c) 2012 Statistics Online Computational Resource [SOCR] (http://www.StatisticsResource.org)
 
 All SOCR programs, materials, tools and resources are developed by and freely disseminated to the entire community.
 Users may revise, extend, redistribute, modify under the terms of the Lesser GNU General Public License
