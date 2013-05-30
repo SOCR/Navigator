@@ -61,40 +61,41 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Other SOCR Stuff</li>
-              <li class="active"><a href="http://www.socr.ucla.edu/" target="_blank">SOCR</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Code</li>
-              <li><a href="https://github.com/SOCRedu/Navigator" target="_blank">GitHub</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
+        <div class="span6">
           <div class="hero-unit">
             <h1>Navigator Tool</h1>
             <p>Tool creates a spring embedded directory from an xml directory.</p>
             <form action="xml_url">
-              Input URL of XML code: <textarea rows="10" cols="30" name="input_url" id="xmlInput"></textarea>
+              Input XML code: <textarea class="field span12" rows="10" name="inputUrl" id="xmlInput"></textarea>
             </form>
             <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
           </div>
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
+        </div><!--/row-->
+        <div class="span6">
+          <div class="hero-unit">
+            <h1>Heirarchy</h1>
+            <form action="xml_url">
+              <textarea class="field span12" rows="10" name="heirarchy" id="heirarchyOutput"></textarea>
+            </form>
+            <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
+          </div>
+        </div><!--/row-->
+      </div><!--/span-->
+    </div><!--/row-->
+
+    <div class="row-fluid">
+        <div class="span12">
+          <div class="hero-unit">
+            <h1>Tree</h1>
+            <p>Tool creates a spring embedded directory from an xml directory.</p>
+            <form action="xml_url">
+              Input XML code: <textarea class="field span12" rows="10" name="inputUrl" id="xmlInput"></textarea>
+            </form>
+            <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
+          </div>
+        </div><!--/row-->
+      </div><!--/span-->
+  </div><!--/row-->
 
       <hr>
 
