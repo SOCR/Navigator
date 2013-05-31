@@ -77,7 +77,6 @@
             <form action="xml_url">
               <textarea class="field span12" rows="10" name="heirarchy" id="heirarchyOutput"></textarea>
             </form>
-            <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
           </div>
         </div><!--/row-->
       </div><!--/span-->
@@ -88,14 +87,14 @@
           <div class="hero-unit">
             <h1>Tree</h1>
             <p>Tool creates a spring embedded directory from an xml directory.</p>
-            <form action="xml_url">
-              Input XML code: <textarea class="field span12" rows="10" name="inputUrl" id="xmlInput"></textarea>
-            </form>
-            <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
+          </div>
+          <div style="border:1px solid black;">
+            <canvas id="viewport" height="800" style="margin:50; padding:25"></canvas>
           </div>
         </div><!--/row-->
       </div><!--/span-->
   </div><!--/row-->
+
 
       <hr>
 
@@ -111,6 +110,7 @@
     <script src="js/jquery-1.10.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/navigator.js"></script>
+    <script src="js/jquery.xml2json.js" type="text/javascript" language="javascript"></script>
 
   </body>
 </html>
