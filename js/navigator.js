@@ -12,10 +12,12 @@
 			var cleanData = clean(inputHandle.val());
 			var jsonObj = $.xml2json(cleanData);	
 			var mainNode;
+			dataSet = "";
 			mainNode = getData(jsonObj, nodeName, dataName);
-			console.log(mainNode);
-			document.getElementById("heirarchyOutput").innerHTML=JSON.stringify(mainNode, null, 4);
-			drawData(mainNode);
+			getDataSet(mainNode);
+			//document.getElementById("heirarchyOutput").innerHTML=JSON.stringify(mainNode, null, 4);
+			$("#heirarchyOutput").html(JSON.stringify(mainNode, null, 4))
+			drawData(dataSet);
 		});
 
 		function clean(data){
@@ -38,49 +40,94 @@
 			}
 			for(var i = 0; i < size; i++)
 			{
-				curNode.array[i]=getData(jsonObj.node[i], nodeName, dataName);
+				curNode.mArray[i]=getData(jsonObj.node[i], nodeName, dataName);
 			}
 			return curNode;
 		}
 
 		function dataNode(name, url, array)
 		{
-			this.name = name;
-			this.url = url;
-			this.array = array;
+			this.mName = name;
+			this.mUrl = url;
+			this.mArray = array;
 		}
 
-		function drawData(node)
+		function drawData(dataSet)
 		{
 			var Renderer = function(canvas){
 			    var canvas = $(canvas).get(0);
 			    var ctx = canvas.getContext("2d");
 			    var particleSystem;
+			    var graphics = arbor.Graphics(canvas);
+
+			    var _vignette = null
+			    var selected = null,
+			        nearest = null,
+			        _mouseP = null;
 
 			    var that = {
 			      	init:function(system){
 			      	particleSystem = system;
 			      	particleSystem.screenSize(canvas.width, canvas.height);
 	        		particleSystem.screenPadding(80);
+	        		$(window).resize(that.resize)
+       				that.resize()
 	        		that.initMouseHandling();
 	        		},
 
+	        		resize:function(){
+				        canvas.width = $(window).width()
+				        canvas.height = .75* $(window).height()
+				        sys.screen({size:{width:canvas.width, height:canvas.height}})
+				        _vignette = null
+				        that.redraw()
+			      	},
+					        		
 	        		redraw:function(){
-		        		ctx.fillStyle = "white";
-				        ctx.fillRect(0,0, canvas.width, canvas.height);
+				        graphics.clear();
+
 				        particleSystem.eachEdge(function(edge, pt1, pt2){
-				          ctx.strokeStyle = "rgba(0,0,0, .333)";
-				          ctx.lineWidth = 1;
-				          ctx.beginPath();
-				          ctx.moveTo(pt1.x, pt1.y);
-				          ctx.lineTo(pt2.x, pt2.y);
-				          ctx.stroke();
+					        ctx.strokeStyle = "#d3d3d3";
+					        ctx.lineWidth = 1;
+					        ctx.beginPath();
+					        ctx.moveTo(pt1.x, pt1.y);
+					        ctx.lineTo(pt2.x, pt2.y);
+					        ctx.stroke();
 				        })
+
 				        particleSystem.eachNode(function(node, pt){
-				          var w = 10;
-				          ctx.fillStyle = (node.data.alone) ? "orange" : "black";
-				          ctx.fillRect(pt.x-w/2, pt.y-w/2, w,w);
+					        var w = Math.max(20, 20+graphics.textWidth(label));
+					        var label = node.name;
+				            graphics.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:"gray"})
+				            graphics.text(label, pt.x, pt.y+9, {color:"white", align:"center", font:"Arial", size:12})
 				        })
+				        that._drawVignette();
+				    },
+
+				    _drawVignette:function(){
+				        var w = canvas.width;
+				        var h = canvas.height;
+				        var r = 20;
+
+				        if (!_vignette){
+				          var top = ctx.createLinearGradient(0,0,0,r);
+				          top.addColorStop(0, "#e0e0e0");
+				          top.addColorStop(.7, "rgba(255,255,255,0)");
+
+				          var bot = ctx.createLinearGradient(0,h-r,0,h);
+				          bot.addColorStop(0, "rgba(255,255,255,0)");
+				          bot.addColorStop(1, "white");
+
+				          _vignette = {top:top, bot:bot};
+				        }
+				        
+				        // top
+				        ctx.fillStyle = _vignette.top;
+				        ctx.fillRect(0,0, w,r);
+
+				        // bot
+				        ctx.fillStyle = _vignette.bot;
+				        ctx.fillRect(0,h-r, w,r);
 				    },
 
 				    initMouseHandling:function(){
@@ -129,16 +176,46 @@
 	        	}
 	        	return that;
 	        }
-		    var sys = arbor.ParticleSystem(1000, 600, 0.5) // create the system with sensible repulsion/stiffness/friction
-		    sys.parameters({gravity:true}) // use center-gravity to make the graph settle nicely (ymmv)
-		    sys.renderer = Renderer("#viewport") // our newly created renderer will have its .init() method called shortly by sys...
+		    var sys = arbor.ParticleSystem(1000, 600, 0.5);
+		    sys.parameters({gravity:true});
+		    sys.renderer = Renderer("#viewport");
+	        // var json = JSON.stringify(eval("(" + dataSet + ")"));
+	        json = $.parseJSON(dataSet);
+		    sys.merge({nodes:json.nodes, edges:json.edges});
+		    //sys.addNode(dataList[1]);
+		    //sys.addEdge(dataList,dataList.mArray);
+		    //sys.addEdge(dataList,dataList.mArray[1]);
+		    //sys.addEdge(dataList,dataList.mArray[2]);
+		    //sys.addEdge(dataList,'e');
+		}
 
-		    // add some nodes to the graph and watch it go...
-		    sys.addEdge('a','b')
-		    sys.addEdge('a','c')
-		    sys.addEdge('a','d')
-		    sys.addEdge('a','e')
-		    sys.addNode('f', {alone:true, mass:.25})
+		function getDataSet(dataList)
+		{
+			dataSet ='{"nodes": {';
+			getNodeData(dataList, true);
+			dataSet += '},';
+			dataSet += ' "edges": {';
+			getEdgeData(dataList, true);
+			dataSet += '}}';
+		}
+
+		function getNodeData(dataList, first)
+		{
+			if(first)
+				dataSet += '"' + dataList.mName + '": {}';
+			else
+				dataSet+=', "' + dataList.mName + '": {}';
+			var size = dataList.mArray.length;
+			for(var i = 0; i < size; i++)
+			{
+				getNodeData(dataList.mArray[i], false);
+			}
+			return;
+		}
+
+		function getEdgeData(dataList, first)
+		{
+
 		}
 	}); //document ready
 })();
