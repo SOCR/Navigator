@@ -16,8 +16,9 @@
 			mainNode = getData(jsonObj, nodeName, dataName);
 			getDataSet(mainNode);
 			//document.getElementById("heirarchyOutput").innerHTML=JSON.stringify(mainNode, null, 4);
-			$("#heirarchyOutput").html(JSON.stringify(mainNode, null, 4))
+		    $("#heirarchyOutput").html(JSON.stringify(mainNode, null, 4))
 			drawData(dataSet);
+			// $("#heirarchyOutput").jsonEditor(dataSet);
 		});
 
 		function clean(data){
@@ -87,7 +88,7 @@
 				        graphics.clear();
 
 				        particleSystem.eachEdge(function(edge, pt1, pt2){
-					        ctx.strokeStyle = "#d3d3d3";
+					        ctx.strokeStyle = "black";
 					        ctx.lineWidth = 1;
 					        ctx.beginPath();
 					        ctx.moveTo(pt1.x, pt1.y);
@@ -96,9 +97,9 @@
 				        })
 
 				        particleSystem.eachNode(function(node, pt){
-					        var w = Math.max(20, 20+graphics.textWidth(label));
 					        var label = node.name;
-				            graphics.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:"gray"})
+					        var w = 20+graphics.textWidth(label);
+				            graphics.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:"black"})
 				            graphics.text(label, pt.x, pt.y+9, {color:"white", align:"center", font:"Arial", size:12})
 				        })
 				        that._drawVignette();
@@ -179,14 +180,8 @@
 		    var sys = arbor.ParticleSystem(1000, 600, 0.5);
 		    sys.parameters({gravity:true});
 		    sys.renderer = Renderer("#viewport");
-	        // var json = JSON.stringify(eval("(" + dataSet + ")"));
-	        json = $.parseJSON(dataSet);
-		    sys.merge({nodes:json.nodes, edges:json.edges});
-		    //sys.addNode(dataList[1]);
-		    //sys.addEdge(dataList,dataList.mArray);
-		    //sys.addEdge(dataList,dataList.mArray[1]);
-		    //sys.addEdge(dataList,dataList.mArray[2]);
-		    //sys.addEdge(dataList,'e');
+	        dataSet = $.parseJSON(dataSet);
+		    sys.merge({nodes:dataSet.nodes, edges:dataSet.edges});
 		}
 
 		function getDataSet(dataList)
@@ -215,7 +210,26 @@
 
 		function getEdgeData(dataList, first)
 		{
+			if(dataList.mArray.length == 0)
+				return;
+			if(first)
+				dataSet += '"' + dataList.mName + '": {';
+			else
+				dataSet+=', "' + dataList.mName + '": {';
+			var size = dataList.mArray.length;
+			dataSet += '"' + dataList.mArray[0].mName + '": {}';
 
+			for(var i = 1; i < size; i++)
+			{
+				dataSet += ', "' + dataList.mArray[i].mName + '": {}';
+			}
+
+			dataSet += '}';
+
+			for(var j = 0; j < size; j++)
+			{
+				getEdgeData(dataList.mArray[j],false);
+			}
 		}
 	}); //document ready
 })();
