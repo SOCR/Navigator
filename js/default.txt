@@ -1,0 +1,592 @@
+<?xml version="1.0" ?>
+                <!--
+                  - www.SOCR.ucla.edu
+                  - SOCR Hyperbolic-Tree Resource Viewer XML File
+                  -->
+                <!-- types : root - tools - materials - wiki -->
+                <node name="SOCR" type="root" url="http://www.socr.ucla.edu/">
+
+                    <!-- SOCR Wiki Resources -->
+                    <node name="SOCR Wiki" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/Main_Page">
+                        <node name="SOCR Docs" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Docs">
+                    <node name="Developer Documentation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Developer_Documentation"/>
+                    <node name="Usage Documentation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Usage_Documentaiton"/>
+                    <node name="Function Documentation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Function_Documentaiton"/>
+                    <node name="Core Java Documentation" type="wiki" url="./docs/index.html"/>
+                    <node name="Wiki Editing Guidelines" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_GuidelinesWikiEditing"/>
+                  </node>
+                        <node name="SOCR Blog" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_UserFeedback"/>
+                        <node name="Community Portal" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/Socr:Community_Portal">
+                    <node name="Event-Related Community Portal" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_CommunityPortal_Events">
+                        <node name="August 2007 SOCR/CAUSE Workshop" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events_Aug2007"/>
+                        <node name="August 2009 SOCR Continuing Education Workshop" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events_Aug2009"/>
+                    </node>
+                    <node name="General Community Portal" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_CommunityPortal_General"/>
+                  </node>
+                        <node name="Educational Materials" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials">
+                    <node name="Courses" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Courses">
+                         <node name="2007-2008 Courses" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Courses_2007_2008"/>
+                         <node name="2006-2007 Courses" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Courses_2006_2007"/>
+                         <node name="2005-2006 Courses" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Courses_2005_2006"/>
+                         <node name="2001-2005 Courses" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Courses_2001_2004"/>
+                         <!-- START EBOOK -->
+                         <node name="SOCR AP Statistics EBook" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/EBook">
+                         <node name="1 Preface" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Preface">
+                           <node name="1.1 Format" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Format"/>
+                           <node name="1.2 Learning and Instructional Usage" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Usage"/>
+                         </node>
+                         <node name="2 Chapter I: Introduction to Statistics" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_I:_Introduction_to_Statistics">
+                           <node name="2.1 The Nature of Data and Variation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_IntroVar"/>
+                           <node name="2.2 Uses and Abuses of Statistics" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_IntroUses"/>
+                           <node name="2.3 Design of Experiments" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_IntroDesign"/>
+                           <node name="2.4 Statistics with Tools (Calculators and Computers)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_IntroTools"/>
+                         </node>
+                         <node name="3 Chapter II: Describing, Exploring, and Comparing Data" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_II:_Describing.2C_Exploring.2C_and_Comparing_Data">
+                           <node name="3.1 Types of Data" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_DataTypes"/>
+                           <node name="3.2 Summarizing data with Frequency Tables" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Freq"/>
+                           <node name="3.3 Pictures of Data" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Pics"/>
+                           <node name="3.4 Measures of Central Tendency" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Center"/>
+                           <node name="3.5 Measures of Variation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Var"/>
+                           <node name="3.6 Measures of Shape" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Shape"/>
+                           <node name="3.7 Statistics" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Statistics"/>
+                           <node name="3.8 Graphs and Exploratory Data Analysis" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_EDA_Plots"/>
+                         </node>
+                         <node name="4 Chapter III: Probability" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_III:_Probability">
+                           <node name="4.1 Fundamentals" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Prob_Basics"/>
+                           <node name="4.2 Rules for Computing Probabilities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Prob_Rules"/>
+                           <node name="4.3 Probabilities Through Simulations" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Prob_Simul"/>
+                           <node name="4.4 Counting" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Prob_Count"/>
+                         </node>
+                         <node name="5 Chapter IV: Probability Distributions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_IV:_Probability_Distributions">
+                           <node name="5.1 Random Variables" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Distrib_RV"/>
+                           <node name="5.2 Expectation (Mean) and Variance" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Distrib_MeanVar"/>
+                           <node name="5.3 Bernoulli and Binomial Experiments" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Distrib_Binomial"/>
+                           <node name="5.4 Geometric, Hypergeometric and Negative Binomial" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Distrib_Dists"/>
+                           <node name="5.5 Poisson Distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Distrib_Poisson"/>
+                         </node>
+                         <node name="6 Chapter V: Normal Probability Distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_V:_Normal_Probability_Distribution">
+                           <node name="6.1 The Standard Normal Distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Normal_Std"/>
+                           <node name="6.2 Nonstandard Normal Distribution: Finding Probabilities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Normal_Prob"/>
+                           <node name="6.3 Nonstandard Normal Distribution: Finding Scores (critical values)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Normal_Critical"/>
+                         </node>
+                         <node name="7 Chapter VI: Relations Between Distributions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_VI:_Relations_Between_Distributions">
+                           <node name="7.1 The Central Limit Theorem" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Limits_CLT"/>
+                           <node name="7.2 Law of Large Numbers" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Limits_LLN"/>
+                           <node name="7.3 Normal Distribution as Approximation to Binomial Distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Limits_Norm2Bin"/>
+                           <node name="7.4 Poisson Approximation to Binomial Distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Limits_Poisson2Bin"/>
+                           <node name="7.5 Binomial Approximation to HyperGeometric" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Limits_Bin2HyperG"/>
+                           <node name="7.6 Normal Approximation to Poisson" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Limits_Norm2Poisson"/>
+                         </node>
+                         <node name="8 Chapter VII: Point and Interval Estimates" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_VII:_Point_and_Interval_Estimates">
+                           <node name="8.1 Estimating a Population Mean: Large Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Estim_L_Mean"/>
+                           <node name="8.2 Estimating a Population Mean: Small Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Estim_S_Mean"/>
+                           <node name="8.3 Student's T distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_StudentsT"/>
+                           <node name="8.4 Estimating a Population Proportion" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Estim_Proportion"/>
+                           <node name="8.5 Estimating a Population Variance" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Estim_Var"/>
+                         </node>
+                         <node name="9 Chapter VIII: Hypothesis Testing" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_VIII:_Hypothesis_Testing">
+                           <node name="9.1 Fundamentals of Hypothesis Testing" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Hypothesis_Basics"/>
+                           <node name="9.2 Testing a Claim about a Mean: Large Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Hypothesis_L_Mean"/>
+                           <node name="9.3 Testing a Claim about a Mean: Small Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Hypothesis_S_Mean"/>
+                           <node name="9.4 Testing a Claim about a Proportion" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Hypothesis_Proportion"/>
+                           <node name="9.5 Testing a Claim about a Standard Deviation or Variance" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Hypothesis_Var"/>
+                         </node>
+                         <node name="10 Chapter IX: Inferences from Two Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_IX:_Inferences_from_Two_Samples">
+                           <node name="10.1 Inferences about Two Means: Dependent Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Infer_2Means_Dep"/>
+                           <node name="10.2 Inferences about Two Means: Independent and Large Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Infer_2Means_Indep"/>
+                           <node name="10.3 Comparing Two Variances" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Infer_BiVar"/>
+                           <node name="10.4 Inferences about Two Means: Independent and Small Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Infer_2Means_S_Indep"/>
+                           <node name="10.5 Inferences about Two Proportions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Infer_2Proportions"/>
+                         </node>
+                         <node name="11 Chapter X: Correlation and Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_X:_Correlation_and_Regression">
+                           <node name="11.1 Correlation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_GLM_Corr"/>
+                           <node name="11.2 Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_GLM_Regress"/>
+                           <node name="11.3 Variation and Prediction Intervals" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_GLM_Predict"/>
+                           <node name="11.4 Multiple Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_GLM_MultLin"/>
+                         </node>
+                         <node name="12 Chapter XI: Analysis of Variance (ANOVA)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XI:_Analysis_of_Variance_.28ANOVA.29">
+                           <node name="12.1 One-Way ANOVA" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_ANOVA_1Way"/>
+                           <node name="12.2 Two-Way ANOVA" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_ANOVA_2Way"/>
+                         </node>
+                         <node name="13 Chapter XII: Non-Parametric Inference" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XII:_Non-Parametric_Inference">
+                           <node name="13.1 Differences of Means of Two Paired Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_2MeansPair"/>
+                           <node name="13.2 Differences of Means of Two Independent Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_2MeansIndep"/>
+                           <node name="13.3 Differences of Medians of Two Paired Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_2MedianPair"/>
+                           <node name="13.4 Differences of Medians of Two Independent Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_2MedianIndep"/>
+                           <node name="13.5 Differences of Proportions of Two Independent Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_2PropIndep"/>
+                           <node name="13.6 Differences of Means of Several Independent Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_ANOVA"/>
+                           <node name="13.7 Differences of Variances of Two Independent Samples" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_NonParam_VarIndep"/>
+                         </node>
+                         <node name="14 Chapter XIII: Multinomial Experiments and Contingency Tables" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XIII:_Multinomial_Experiments_and_Contingency_Tables">
+                           <node name="14.1 Multinomial Experiments: Goodness-of-Fit" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Contingency_Fit"/>
+                           <node name="14.2 Contingency Tables: Independence and Homogeneity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Contingency_Indep"/>
+                         </node>
+                         <node name="15 Chapter XIV: Statistical Process Control" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XIV:_Statistical_Process_Control">
+                           <node name="15.1 Control Charts for Variation and Mean" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Control_MeanVar"/>
+                           <node name="15.2 Control Charts for Attributes" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_Control_Attrib"/>
+                         </node>
+                         <node name="16 Chapter XV: Survival/Failure Analysis" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XV:_Survival.2FFailure_Analysis"/>
+                         <node name="17 Chapter XVI: Multivariate Statistical Analyses" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XVI:_Multivariate_Statistical_Analyses">
+                           <node name="17.1 Multivariate Analysis of Variance" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_MultiVar_ANOVA"/>
+                           <node name="17.2 Multiple Linear Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_MultiVar_LinRegression"/>
+                           <node name="17.3 Logistic Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_MultiVar_Logistic"/>
+                           <node name="17.4 Log-Linear Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_MultiVar_LogLinear"/>
+                           <node name="17.5 Multivariate Analysis of Covariance" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007_MultiVar_ANCOVA"/>
+                         </node>
+                         <node name="18 Chapter XVII: Time Series Analysis" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/AP_Statistics_Curriculum_2007#Chapter_XVII:_Time_Series_Analysis"/>
+                         </node>
+                         <!-- END EBOOK -->
+                    </node>
+                    <node name="Surveys" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Surveys">
+                         <node name="Survey Fall 2005 Stat 100A Christou" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Surveys_Fall2005Christou"/>
+                         <node name="Survey Fall 2005 Stat 100A Sanchez" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Surveys_Fall2005Sanchez"/>
+                         <node name="Moodle Surveys" type="wiki" url="http://moodle.stat.ucla.edu/course/"/>
+                    </node>
+                    <node name="Distribution Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_DistributionsActivities">
+                        <node name="CLT" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GeneralCentralLimitTheorem"/>
+                        <node name="Poisson" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Poisson_Distribution"/>
+                        <node name="Exponential" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Exponential_Distribution"/>
+                        <node name="Normal" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Normal_Distribution"/>
+                        <node name="Binomial, Geometric, Hypergeometric Distributions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Binomial_Distributions"/>
+                        <node name="Continuous Distributions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Continuous_Distributions"/>
+                        <node name="Negative Binomial" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_NegativeBinomial_Distributions"/>
+                        <node name="Relationships and Approximations Among Distributions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Explore_Distributions"/>
+                    </node>
+                    <node name="Experiments Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_ExperimentsActivities">
+                        <node name="Ballot Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BallotExperiment"/>
+                        <node name="Ball And Urn Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BallAndRunExperiment"/>
+                        <node name="Bertrand Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BertrandExperiment"/>
+                        <node name="Beta Coin Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BetaCoinExperiment"/>
+                        <node name="Beta Estimate Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BetaEstimateExperiment"/>
+                        <node name="Binomial Coin Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BinomialCoinExperiment"/>
+                        <node name="Binomial Timeline Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BinomialTimelineExperiment"/>
+                        <node name="Birthday Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BirthdayExperiment"/>
+                        <node name="Bivariate Normal Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BivariateNormalExperiment"/>
+                        <node name="Bivariate Uniform Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BivariteUniformExperiment"/>
+                        <node name="Buffon Coin Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BuffonCoinExperiment"/>
+                        <node name="Buffon Needle Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_BuffonNeedleExperiment"/>
+                        <node name="Card Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CardExperiment"/>
+                        <node name="Chi Square Dice Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_ChiSquareDiceExperiment"/>
+                        <node name="Chuck A Luck Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_ChuckALuckExperiment"/>
+                        <node name="Coin Die Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CoinDieExperiment"/>
+                        <node name="Coin Sample Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CoinSampleExperiment"/>
+                        <node name="Confidence Interval Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CoinfidenceIntervalExperiment"/>
+                        <node name="Coupon Collector Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CouponCollectorExperiment"/>
+                        <node name="Craps Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CrapsExperiment"/>
+                        <node name="Dice Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_DiceExperiment"/>
+                        <node name="Dice Sample Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_DiceSampleExperiment"/>
+                        <node name="Die Coin Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_DieCoinExperiment"/>
+                        <node name="Exponential Car-Time Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_ExpCarTimeExperiment"/>
+                        <node name="Finite Order Statistic Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_FiniteOrderStatisticExperiment"/>
+                        <node name="Galton Board Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GaltonBoardExperiment"/>
+                        <node name="Gamma Estimate Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GammaEstimateExperiment"/>
+                        <node name="Gamma Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GammaExperiment"/>
+                        <node name="Law Of Large Numbers Experiment" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_LawOfLargeNumbersExperiment"/>
+                        <node name="SOCR Cards and Coins Sampling Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CardsCoinsSampling"/>
+                        <node name="Central Limit Theorem" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CentralLimitTheorem"/>
+                        <node name="Die Coin Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_DieCoin"/>
+                        <node name="Confidence Intervals" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_ConfIntervals"/>
+                        <node name="Dice Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_DiceExperiment"/>
+                        <node name="General Central Limit Theorem" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GeneralCentralLimitTheorem"/>
+                        <node name="Joint Distributons" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_JointDistributions"/>
+                        <node name="Law of Large Numbers" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_LawOfLargeNumbers"/>
+                        <node name="Matching experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Matching_Juana_oct10-06_version1"/>
+                        <node name="Monty Hall Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_MontyHall"/>
+                        <node name="Craps Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Craps"/>
+                    </node>
+                    <node name="Analysis Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysesActivities">
+                        <node name="One-Way Analysis of Variance (ANOVA)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_ANOVA_1"/>
+                        <node name="Two-Way Analysis of Variance (ANOVA)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_ANOVA_2"/>
+                        <node name="Simple Linear Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_SLR"/>
+                        <node name="Multiple Linear Regression" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_MLR"/>
+                        <node name="One-Smaple T-Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_OneT"/>
+                        <node name="Two Independent Sample (Pooled) T-Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_TwoIndepT"/>
+                        <node name="Two Independent Sample (Unpooled) T-Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_TwoIndepTU"/>
+                        <node name="Two Independent Sample Wilcoxon Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Wilcoxon"/>
+                        <node name="Kruskal-Wallis Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_KruskalWallis"/>
+                        <node name="Friedman's Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Friedman"/>
+                        <node name="Fisher's Exact Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Fisher_Exact"/>
+                        <node name="Two Paired Sample T-Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_TwoPairedT"/>
+                        <node name="Two Paired Smaple Sign-Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_TwoPairedSign"/>
+                        <node name="Two Paired Smaple Signed-Rank Test" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_TwoPairedRank"/>
+                        <node name="Chi-Square Test for Contingency Tables" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Chi_Contingency"/>
+                        <node name="Chi-Square Test for Goodness of Fit" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Chi_Goodness"/>
+                        <node name="Proportion Test for Dichotomous Data" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Proportion_Test"/>
+                        <node name="Survival Analysis" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_Survival"/>
+                        <node name="Power Analysis for Normal Distribution" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysisActivities_NormalPower"/>
+                    </node>
+                    <node name="Games Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_GamesActivities">
+                        <node name="Wavelet Game" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_GamesActivitiesWavelets"/>
+                        <node name="Fourier Game" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_GamesActivitiesFourier"/>
+                    </node>
+                    <node name="Modeler Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_ModelerActivities">
+                        <node name="Mixture Model Fitting using EM estimation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_ModelerActivities_MixtureModel_1"/>
+                        <node name="Random Number Generator (RNG)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_RNG"/>
+                    </node>
+                    <node name="Charts Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_ChartsActivities">
+                        <node name="Cards and Coins Sampling Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CardsCoinsSampling"/>
+                        <node name="Power-Transform Family Graphs" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_PowerTransformFamily_Graphs"/>
+                        <node name=" 2D Point Segmentation using SOCR Graphs, EM and Mixture Modeling" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_2D_PointSegmentation_EM_Mixture"/>
+                    </node>
+                    <node name="General Activities" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities">
+                       <node name="SOCR Birthday Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Birthday"/>
+                       <node name="SOCR Bivariate Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Bivariate"/>
+                       <node name="SOCR Cards and Coins Sampling Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CardsCoinsSampling"/>
+                       <node name="SOCR SOCR Central Limit Theorem Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_CLT"/>
+                       <node name="SOCR Confidence Intervals Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_ConfidenceIntervals"/>
+                       <node name="SOCR Distributions Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Distributions"/>
+                       <node name="SOCR General Central Limit Theorem" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GeneralCentralLimitTheorem"/>
+                       <node name="SOCR General Central Limit Theorem (2)" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_GeneralCentralLimitTheorem2"/>
+                       <node name="SOCR Matching Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_matching"/>
+                       <node name="SOCR Random Number Generation" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_RNG"/>
+                       <node name="SOCR Triangles Experiment Activity" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_Activities_Triangles"/>
+                    </node>
+                    </node>
+                    <node name="News Events and Announcements" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_NewsEventsAnnouncements">
+                    <node name="News by Year" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_News">
+                        <node name="2009 News" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2009"/>
+                        <node name="2008 News" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2008"/>
+                        <node name="2007 News" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2007"/>
+                        <node name="2006 News" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2006"/>
+                    </node>
+                    <node name="Events" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events">
+                        <node name="SOCR 2009 Training Workshop" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events_Aug2009"/>
+                        <node name="SOCR/CAUSE 2007 Workshop" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events_Aug2007"/>
+                        <node name="USCOTS 2007 Workshop" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/USCOTS_2007_Program">
+                      <node name="SOCR Session USCOTS 2007 Workshop" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events_May2007"/>
+                        </node>
+                        <node name="Past, Current and Future SOCR Presentations" type="wiki" url="./htmls/SOCR_Presentations.html"/>
+                        <node name="SOCR Sponsored Events" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Events_SponsoredEvents"/>
+                    </node>
+                    <node name="Announcements" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Announcements">
+                       <node name="SOCR Positions" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Positions"/>
+                    </node>
+                    <node name="SOCR in the Media" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Media"/>
+                    <node name="SOCR Projects" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/Available_SOCR_Development_Projects">
+                       <node name="SOCR-R Interface" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR-R_Interface_Development_Project"/>
+                       <node name="SOCR Translation and Internationalization" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Internationalization_Project"/>
+                       <node name="SOCR Modeler Redesign and Expansion" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/Redesign_and_Expansion_of_the_SOCR_Modeler_Project"/>
+                       <node name="SOCR Project Proposal Submission Guidelines" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_ProposalSubmissionGuidelines"/>
+                    </node>
+                    </node>
+                    <node name="Collaborators and Partners" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Partners"/>
+                    <node name="Wiki Search" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/Socr:Searching"/>
+                    </node>
+
+                    <!-- SOCR Tools -->
+                    <node name="SOCR Tools" type="tools" url="http://www.socr.ucla.edu/">
+                        <node name="Distributions" type="tools" url="./htmls/SOCR_Distributions.html">
+                           <node name="ArcSine Distribution" type="tools" url="./htmls/dist/ArcSine_Distribution"/>
+                           <node name="Benford Distribution" type="tools" url="./htmls/dist/Benford_Distribution"/>
+                           <node name="Bernoulli Distribution" type="tools" url="./htmls/dist/Bernoulli_Distribution"/>
+                           <node name="Beta Distribution" type="tools" url="./htmls/dist/Beta_Distribution"/>
+                           <node name="Beta (Generalized) Distribution" type="tools" url="./htmls/dist/BetaGeneral_Distribution"/>
+                           <node name="Beta-Binomial Distribution" type="tools" url="./htmls/dist/BetaBinomial_Distribution"/>
+                           <node name="Binomial Distribution" type="tools" url="./htmls/dist/Binomial_Distribution"/>
+                           <node name="Birthday Distribution" type="tools" url="./htmls/dist/Birthday_Distribution"/>
+                           <node name="Cauchy Distribution" type="tools" url="./htmls/dist/Cauchy_Distribution"/>
+                           <node name="Chi Distribution" type="tools" url="./htmls/dist/Chi_Distribution"/>
+                           <node name="Chi-Square Distribution" type="tools" url="./htmls/dist/ChiSquare_Distribution"/>
+                           <node name="Circle Distribution" type="tools" url="./htmls/dist/Circle_Distribution"/>
+                           <node name="Continuous Uniform Distribution" type="tools" url="./htmls/dist/ContinuousUniform_Distribution"/>
+                           <node name="Coupon Distribution" type="tools" url="./htmls/dist/Coupon_Distribution"/>
+                           <node name="Die Distribution" type="tools" url="./htmls/dist/Die_Distribution"/>
+                           <node name="Discrete ArcSine Distribution" type="tools" url="./htmls/dist/DiscreteArcSine_Distribution"/>
+                           <node name="Discrete Uniform Distribution" type="tools" url="./htmls/dist/DiscreteUniform_Distribution"/>
+                           <node name="Erlang Distribution" type="tools" url="./htmls/dist/Erlang_Distribution"/>
+                           <node name="Error Distribution" type="tools" url="./htmls/dist/Error_Distribution"/>
+                           <node name="Exponential Distribution" type="tools" url="./htmls/dist/Exponential_Distribution"/>
+                           <node name="FiniteDistribution" type="tools" url="./htmls/dist/Finite_Distribution"/>
+                           <node name="Fisher's F Distribution" type="tools" url="./htmls/dist/Fisher_Distribution"/>
+                           <node name="Fisher-Tippett Distribution" type="tools" url="./htmls/dist/FisherTippett_Distribution"/>
+                           <node name="Gamma Distribution" type="tools" url="./htmls/dist/Gamma_Distribution"/>
+                           <node name="General Cauchy Distribution" type="tools" url="./htmls/dist/GeneralCauchy_Distribution"/>
+                           <node name="Geometric Distribution" type="tools" url="./htmls/dist/Geometric_Distribution"/>
+                           <node name="Gilbrats Distribution" type="tools" url="./htmls/dist/Gilbrats_Distribution"/>
+                           <node name="Gompertz Distribution" type="tools" url="./htmls/dist/Gompertz_Distribution"/>
+                           <node name="Gumbel Distribution" type="tools" url="./htmls/dist/Gumbel_Distribution"/>
+                           <node name="Half-Normal Distribution" type="tools" url="./htmls/dist/HalfNormal_Distribution"/>
+                           <node name="HyperGeometric Distribution" type="tools" url="./htmls/dist/HyperGeometric_Distribution"/>
+                           <node name="Hyperbolic-Secant Distribution" type="tools" url="./htmls/dist/HyperbolicSecant_Distribution"/>
+                           <node name="Inverse-Gamma Distribution" type="tools" url="./htmls/dist/InverseGamma_Distribution"/>
+                           <node name="Inverse Gaussian (Wald) Distribution" type="tools" url="./htmls/dist/InverseGaussian_Distribution"/>
+                           <node name="Laplace Distribution" type="tools" url="./htmls/dist/Laplace_Distribution"/>
+                           <node name="Logarithmic-Series Distribution" type="tools" url="./htmls/dist/LogarithmicSeries_Distribution"/>
+                           <node name="Logistic Distribution" type="tools" url="./htmls/dist/Logistic_Distribution"/>
+                           <node name="Logistic-Exponential Distribution" type="tools" url="./htmls/dist/LogisticExponential_Distribution"/>
+                           <node name="Log-Normal Distribution" type="tools" url="./htmls/dist/LogNormal_Distribution"/>
+                           <node name="Lomax Distribution" type="tools" url="./htmls/dist/Lomax_Distribution"/>
+                           <node name="Matching Distribution" type="tools" url="./htmls/dist/Matching_Distribution"/>
+                           <node name="Maxwell Distribution" type="tools" url="./htmls/dist/Maxwell_Distribution"/>
+                           <node name="Minimax Distribution" type="tools" url="./htmls/dist/Minimax_Distribution"/>
+                           <node name="Mixture Distribution" type="tools" url="./htmls/dist/Mixture_Distribution"/>
+                           <node name="Muth Distribution" type="tools" url="./htmls/dist/Muth_Distribution"/>
+                           <node name="Negative-Binomial Distribution" type="tools" url="./htmls/dist/NegativeBinomial_Distribution"/>
+                           <node name="Negative-HyperGeometric Distribution" type="tools" url="./htmls/dist/NegativeHypergeometric_Distribution"/>
+                           <node name="Normal Distribution" type="tools" url="./htmls/dist/Normal_Distribution"/>
+                           <node name="Pareto Distribution" type="tools" url="./htmls/dist/Pareto_Distribution"/>
+                           <node name="Point-Mass Distribution" type="tools" url="./htmls/dist/PointMass_Distribution"/>
+                           <node name="Poisson Distribution" type="tools" url="./htmls/dist/Poisson_Distribution"/>
+                           <node name="Poker-Dice Distribution" type="tools" url="./htmls/dist/PokerDice_Distribution"/>
+                           <node name="Power-Function Distribution" type="tools" url="./htmls/dist/PowerFunction_Distribution"/>
+                           <node name="Rayleigh Distribution" type="tools" url="./htmls/dist/Rayleigh_Distribution"/>
+                           <node name="Rice (Rician) Distribution" type="tools" url="./htmls/dist/Rice_Distribution"/>
+                           <node name="Student's T Distribution" type="tools" url="./htmls/dist/StudentT_Distribution"/>
+                           <node name="Student's T Non-Central Distribution" type="tools" url="./htmls/dist/StudentT_Distribution"/>
+                           <node name="Triangle Distribution" type="tools" url="./htmls/dist/Triangle_Distribution"/>
+                           <node name="Two-Sided Power Distribution" type="tools" url="./htmls/dist/TwoSidedPower_Distribution"/>
+                           <node name="U-Quadratic Distribution" type="tools" url="./htmls/dist/UQuadratic_Distribution"/>
+                           <node name="Von Mises Distribution" type="tools" url="./htmls/dist/VonMises_Distribution"/>
+                           <node name="WalkMaxDistribution" type="tools" url="./htmls/dist/WalkMax_Distribution"/>
+                           <node name="WalkPositionDistribution" type="tools" url="./htmls/dist/WalkPosition_Distribution"/>
+                           <node name="Weibull Distribution" type="tools" url="./htmls/dist/Weibull_Distribution"/>
+                           <node name="Zipf-Mandelbrot Distribution" type="tools" url="./htmls/dist/ZipfMandelbrot_Distribution"/>
+                        </node>
+
+                        <node name="Experiments" type="tools" url="./htmls/SOCR_Experiments.html">
+                           <node name="Ballot Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Ball and Urn Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Bertrand Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Beta Coin Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Beta Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Binomial Coin Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Binomial Timeline Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Birthday Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Bivariate Normal Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Bivariate Uniform Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Buffon's Coin Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Buffon's Needle Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="CardExperiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Chi Square Dice Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Chuck A Luck Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Coin Die Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Coin Sample Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Coin-Toss LLN Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Confidence Interval Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Coupon Collector Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Craps Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Dice Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Dice Sample Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Die Coin Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                     <node name="Exponential Car-Times Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Finite Order Statistic Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Fire Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Galton Board Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Game" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Gamma Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Gamma Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="LLN Simple Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Markov Chain Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Match Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Mean Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Mean Test Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Mixture Model EM Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Monty Hall Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Negative Binomial Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Normal Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Order Statistics Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Pareto Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Problem of Points Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Two-Dimensional Poisson Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Poisson Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Two-Type Poisson Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Poker Dice Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Poker Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Probability Plot Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Proportion Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Proportion Test Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Quantile JApplet" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Random Variable Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Randowm Walk Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Red and Black Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Roulette Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Sample Mean Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Sample Distribution CLT Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Sign Test Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Spinner Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Triangle Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Uniform Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                     <node name="Uniform E-Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Variance Estimate Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Variance Test Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                           <node name="Voter Experiment" type="tools" url="./htmls/SOCR_Experiments.html"/>
+                  </node>
+
+                        <node name="Analyses" type="tools" url="./htmls/SOCR_Analyses.html">
+                           <node name="ANOVA 1-Way" type="tools" url="./htmls/ana/ANOVA1Way_Analysis.html"/>
+                           <node name="ANOVA 2-Way" type="tools" url="./htmls/ana/ANOVA2Way_Analysis.html"/>
+                           <node name="Chi-Square Contingency Tables" type="tools" url="./htmls/ana/ChiSquareCT_Analysis.html"/>
+                           <node name="Chi-Square Goodness of Fit" type="tools" url="./htmls/ana/ChiSquareGF_Analysis.html"/>
+                           <node name="Fisher's Exact Test" type="tools" url="./htmls/ana/FishersExactTest_Analysis.html"/>
+                           <node name="Friedman's Test" type="tools" url="./htmls/ana/FriedmansTest_Analysis.html"/>
+                           <node name="Normal Distribution Power Analysis" type="tools" url="./htmls/ana/NormalPower_Analysis.html"/>
+                           <node name="Proportion Test (Dichotomous)" type="tools" url="./htmls/ana/ProportionTest_Analysis.html"/>
+                           <node name="One-Sample T-Test" type="tools" url="./htmls/ana/OneSampleTTest_Analysis.html"/>
+                           <node name="Simple Linear Regression" type="tools" url="./htmls/ana/SimpleRegression_Analysis.html"/>
+                           <node name="Survival Analysis" type="tools" url="./htmls/ana/Survival_Analysis.html"/>
+                           <node name="Two Independent Sample T-Test (Pooled)" type="tools" url="./htmls/ana/TwoIndependentTTest_Analysis.html"/>
+                           <node name="Two Independent Sample T-Test (Unpooled)" type="tools" url="./htmls/ana/TwoIndependentTTestUnpooled_Analysis.html"/>
+                           <node name="Two Independent Sample Wilcoxon Rank Sum Test" type="tools" url="./htmls/ana/TwoIndependentSampleWilcoxonRankSum_Analysis.html"/>
+                           <node name="Two Independent Sample Kruskal-Wallis Test" type="tools" url="./htmls/ana/TwoIndependentKruskalWallis_Analysis.html"/>
+                           <node name="Two Paired Sample Sign-Test" type="tools" url="./htmls/ana/TwoPairedSampleSignTest_Analysis.html"/>
+                           <node name="Two Paired Sample (Wilcoxon) Signed-Rank Test" type="tools" url="./htmls/ana/TwoPairedSampleSignedRankTest_Analysis.html"/>
+                           <node name="Two Paired Sample T-Test" type="tools" url="./htmls/ana/TwoPairedSampleTTest_Analysis.html"/>
+                  </node>
+
+                        <node name="Games" type="tools" url="./htmls/SOCR_Games.html">
+                           <node name="Interactive Scatterplot" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Interactive Histogram with Error Graph" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Galton Board Game" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Game" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Interactive Histogram" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Monty Hall Game" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Red and Black Game" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Fourier Game" type="tools" url="./htmls/SOCR_Games.html"/>
+                           <node name="Wavelet Game" type="tools" url="./htmls/SOCR_Games.html"/>
+                  </node>
+
+                        <node name="Charts" type="tools" url="./htmls/SOCR_Charts.html">
+                           <node name="Motion Charts" type="tools" url="./SOCR_MotionCharts/"/>
+                           <node name="AreaChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="AreaChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChart3DDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChart3DDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChart3DDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo4" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo5" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo7" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo8" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BarChartDemo9" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BoxAndWhiskerChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BoxAndWhiskerChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="BubbleChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="CategoryStepChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="CompassDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="CrosshairDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="CrosshairDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="CrosshairDemo4" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="DifferenceChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="DotChart" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="EventFrequencyDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="HistogramChartDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="HistogramChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="HistogramChartDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="HistogramChartDemo4" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="HistogramChartDemo5" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="IndexChart" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LayeredBarChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LayeredBarChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LineChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LineChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LineChartDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LineChartDemo5" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="LineChartDemo6" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="NormalDistributionDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChart3DDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChart3DDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChart3DDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChartDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PieChartDemo4" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="PolarChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                     <node name="PowerTransformChart" type="tools" url="./htmls/SOCR_Charts.html"/>
+                     <node name="PowerTransformHistogramChartDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                     <node name="PowerTransformQQNormalChartDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                     <node name="PowerTransformScatterChartDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="QQChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="QQChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="QQChartDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="QQData2DataDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="QQNormalPlotDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="RingChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="ScatterChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="SpiderWebChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedAreaChartDemo" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedBarChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedBarChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedBarChartDemo3" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedBarChartDemo4" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedXYAreaChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StackedXYAreaChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StatisticalBarChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StatisticalBarChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StatisticalLineChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="StatisticalLineChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="SymbolAxisDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="WaterfallChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="XYAreaChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="XYAreaChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="XYBarChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="XYBarChartDemo2" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="XYStepRendererDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                           <node name="YIntervalChartDemo1" type="tools" url="./htmls/SOCR_Charts.html"/>
+                  </node>
+
+                        <node name="Modeler" type="tools" url="./htmls/SOCR_Modeler.html">
+                           <node name="Beta Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Exponential Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Fourier Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Gamma Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Mixed Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Normal Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Poisson Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Rice (Rician) Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                           <node name="Wavelet Fit Modeler" type="tools" url="./htmls/SOCR_Modeler.html"/>
+                  </node>
+
+                        <node name="Other Tools" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html">
+                           <node name="High-Precision Distribution Calculators" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html"/>    
+                           <node name="Conceptual Demo Applets" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html"/>
+                           <node name="Tables" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html"/>   
+                           <node name="Online Real-Time Tools for Statistical Data Analysis" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html"/>
+                           <node name="Function and Image-Processing Tools" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html"/>  
+                           <node name="Other Online Computational Resources" type="tools" url="http://www.socr.ucla.edu/Applets.dir/OnlineResources.html"/>
+                  </node>
+
+                  <node name="Core Java Documentation" type="tools" url="./docs/index.html">
+                     <node name="Source Code (GoogleCode)" type="materials" url="http://socr.googlecode.com/"/>
+                     <node name="Core Java UML Diagram" type="tools" url="./docs/SOCR_Core.jpg"/>
+                     <node name="Package-Level Diagram" type="tools" url="./docs/SOCR_PackageLevel.jpg"/>
+                     <node name="SOCR Core Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/core/package-summary.html"/>
+                     <node name="SOCR Distributions Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/disitributions/package-summary.html"/>
+                     <node name="SOCR Experiments Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/experiments/package-summary.html"/>
+                     <node name="SOCR Games Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/games/package-summary.html"/>
+                     <node name="SOCR GUI Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/gui/package-summary.html"/>
+                     <node name="SOCR Modeler Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/modeler/package-summary.html"/>
+                     <node name="SOCR Chart Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/chart/package-summary.html"/>
+                     <node name="SOCR Utility Package Documentation" type="tools" url="./docs/edu/ucla/stat/SOCR/util/package-summary.html"/>
+                  </node>
+                    </node>
+                                    
+                    <!-- About SOCR -->
+                    <node name="About SOCR" type="materials" url="./htmls/SOCR_About.html">
+                        <node name="News" type="wiki" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_News"/>
+                        <node name="Team" type="materials" url="./htmls/SOCR_Team.html"/>
+                        <node name="Contact" type="materials" url="./htmls/SOCR_Contact.html"/>
+                        <node name="Funding" type="materials" url="./htmls/SOCR_Funding.html"/>
+                        <node name="References" type="materials" url="./htmls/SOCR_References.html"/>
+                        <node name="Recognitions" type="materials" url="./htmls/SOCR_Recognitions.html"/>
+                        <node name="Web Stat Log (limitted access)" type="materials" url="http://stats.stat.ucla.edu/awstats/awstats.pl?config=socr.stat.ucla.edu"/>
+                        <node name="Download" type="materials" url="./htmls/SOCR_Download.html"/>
+                        <node name="Geo-Map" type="materials" url="./SOCR_UserGoogleMap.html"/>
+                        <node name="Contact" type="materials" url="./htmls/SOCR_Contact.html"/>
+                        <node name="Acknowledgments" type="materials" url="./htmls/SOCR_Acknowledgements.html"/>
+                        <node name="Presentations" type="materials" url="./htmls/SOCR_Presentations.html"/>
+                    <node name="Forum" type="materials" url="http://forums.stat.ucla.edu/socr"/>
+                  <node name="SOCR Brochure" type="materials" url="./docs/SOCR_Brochure_Integrated2Page_2008.pdf"/>
+                        <node name="SOCR Servers" type="materials" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Servers">
+                    <node name="SOCR Mirrors (known public mirrors only)" type="materials" url="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Servers">
+                      <node name="PsyResearch" type="materials" url="http://psyresearch.org/statistics/socr/"/>
+                      <node name="ASA Amstat" type="materials" url="http://www.amstat.org/publications/jse/socr/"/>
+                    </node>
+                    <node name="Computational Server" type="materials" url="./SOCR.html"/>
+                    <node name="Wiki Server" type="materials" url="http://wiki.stat.ucla.edu/socr"/>
+                    <node name="Forum Server" type="materials" url="http://forums.stat.ucla.edu/socr"/>
+                    <node name="Source Code (GoogleCode)" type="materials" url="http://socr.googlecode.com/"/>
+                        </node>
+                    </node>
+                </node>

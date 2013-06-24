@@ -5,10 +5,16 @@
 
 		var inputHandle = $("#xmlInput"); 
 		var goButton = $("#goButton");
-
+		$.get("default.txt").success(function(xml){inputHandle.html(xml)})
 		goButton.on("click",function(){
-			var nodeName = "node";
-			var dataName = "name";
+			var nodeName = $("#nodeInput");
+			nodeName = nodeName.val();
+			if(nodeName == "")
+				nodeName = "node";
+			var dataName = $("#dataInput");
+			dataName = dataName.val();
+			if(dataName == "")
+				dataName = "name";
 			var cleanData = clean(inputHandle.val());
 			var jsonObj = $.xml2json(cleanData);	
 			var mainNode;
@@ -88,15 +94,23 @@
 				        graphics.clear();
 
 				        particleSystem.eachEdge(function(edge, pt1, pt2){
-					        ctx.strokeStyle = "black";
+				        	if(edge.source.show * edge.target.show == 0)
+				        		return;
+
+				        	graphics.line(pt1, pt2, {stroke:"black", width:1, alpha:edge.target.show})
+
+					        /*ctx.strokeStyle = "black";
 					        ctx.lineWidth = 1;
 					        ctx.beginPath();
 					        ctx.moveTo(pt1.x, pt1.y);
 					        ctx.lineTo(pt2.x, pt2.y);
-					        ctx.stroke();
+					        ctx.stroke();*/
 				        })
 
 				        particleSystem.eachNode(function(node, pt){
+				        	if(node.alpha === 0)
+				        		return;
+
 					        var label = node.name;
 					        var w = 20+graphics.textWidth(label);
 				            graphics.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:"black"})
@@ -131,34 +145,73 @@
 				        ctx.fillRect(0,h-r, w,r);
 				    },
 
+				    switchSection:function(newSection){
+				    	var parent = particleSystem.getEdgesFrom(newSection)[0].source;
+				    	var children = $.map(particleSystem.getEdgesFrom(newSection),function(edge){
+				    		return edge.target;
+				    	})
+
+				    	sys.eachNode(function(node){
+				    		if(node.num >= 1)
+				    			return;
+
+				    		var nowVisible = ($.inArray(node, children) >=0);
+				    		var newAlpha = (nowVisible) ? 1 : 0;
+				    		var dt = (nowVisible) ? .5 : .5;
+				    		particleSystem.tweenNode(node, dt, {alpha:newAlpha});
+
+				    		if (newAlpha==1){
+				            node.p.x = parent.p.x + .05*Math.random() - .025
+				            node.p.y = parent.p.y + .05*Math.random() - .025
+				            node.tempMass = .001
+				        	}
+				    	})
+				    },
+
 				    initMouseHandling:function(){
 				        var dragged = null;
+				        var selected = null;
+				        var nearest = null;
+				        var oldmass = 1;
+
+				        var _section = null;
 
 				        var handler = {
-				          clicked:function(e){
-				            var pos = $(canvas).offset();
-				            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
-				            dragged = particleSystem.nearest(_mouseP);
+				        	moved:function(e){
+				        		var pos = $(canvas).offset();
+				        		_mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
+				        		nearest = particleSystem.nearest(_mouseP);
 
-				            if (dragged && dragged.node !== null){
-				              dragged.node.fixed = true;
-				            }
+				        		if(!nearest.node)
+				        			return false;
 
-				            $(canvas).bind('mousemove', handler.dragged);
-				            $(window).bind('mouseup', handler.dropped);
 
-				            return false;
-				          	},
-				          	dragged:function(e){
-				            var pos = $(canvas).offset();
-				            var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
+				        	},
 
-				            if (dragged && dragged.node !== null){
-				              var p = particleSystem.fromScreen(s);
-				              dragged.node.p = p;
-				            }
+				          	clicked:function(e){
+					            var pos = $(canvas).offset();
+					            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
+					            dragged = particleSystem.nearest(_mouseP);
 
-				            return false;
+					            if (dragged && dragged.node !== null){
+					              dragged.node.fixed = true;
+					            }
+
+					            $(canvas).bind('mousemove', handler.dragged);
+					            $(window).bind('mouseup', handler.dropped);
+
+					            return false;
+					          	},
+					          	dragged:function(e){
+					            var pos = $(canvas).offset();
+					            var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
+
+					            if (dragged && dragged.node !== null){
+					              var p = particleSystem.fromScreen(s);
+					              dragged.node.p = p;
+					            }
+
+					            return false;
 				          	},
 
 					        dropped:function(e){
