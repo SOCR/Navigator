@@ -26,7 +26,7 @@
 	        var jsonObj = $.xml2json(cleanData);  
 	        var mainNode;
 	        mainNode = getData(jsonObj, nodeName, dataName);
-	        getDataSet(mainNode, true);
+	        getDataSet(mainNode, true, 35000);
 	        hierarchy();
 	        tree();
 
@@ -56,6 +56,8 @@
 		          json.x0 = 0;
 		          json.y0 = 0;
 		          update(root = json);
+
+		        
 
 		        function update(source) {
 
@@ -176,7 +178,7 @@
 				    root;
 
 				var force = d3.layout.force()
-				    .linkDistance(80)
+				    .linkDistance(100)
 				    .charge(-120)
 				    .gravity(.05)
 				    .size([w, h]);
@@ -226,10 +228,11 @@
 				      .attr("class", "node")
 				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
 				      .on("click", click)
+				      .on("dblclick", dblclick)
 				      .call(force.drag);
 
 				  nodeEnter.append("svg:circle")
-				      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
+				      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 7.5; })
 				      .style("fill", color);
 
 				  nodeEnter.append("svg:text")
@@ -270,6 +273,10 @@
 				  }
 				  update();
 				}
+
+				function dblclick(d) {
+		        	window.open(d.url);
+		        }
 
 				// Returns a list of all nodes under the root.
 				function flatten(root) {
@@ -320,9 +327,9 @@
 	        this.mArray = array;
 	      }
 	      
-	      function getDataSet(dataList, last)
+	      function getDataSet(dataList, last, setSize)
 	      {
-	        dataSet += '{"name": "' + dataList.mName + '", "url": ' + '"' + dataList.mUrl + '"';
+	        dataSet += '{"name": "' + dataList.mName + '", "url": ' + '"' + dataList.mUrl + '", "size": ' + setSize;
 	        var size = dataList.mArray.length;
 	        if(size != 0)
 	        {
@@ -330,9 +337,9 @@
 	          for(var i = 0; i < size; i++)
 	          {
 	            if(i != size - 1)
-	              getDataSet(dataList.mArray[i], false);
+	              getDataSet(dataList.mArray[i], false, setSize * 2 / 3);
 	            else
-	              getDataSet(dataList.mArray[i], true);
+	              getDataSet(dataList.mArray[i], true, setSize * 2 / 3);
 	          }
 	          dataSet += ']';
 	        }
