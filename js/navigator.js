@@ -2,287 +2,344 @@
 
 (function(){
 	$(document).ready(function(){
+		var nodeName = $("#nodeInput");
+    	nodeName = nodeName.val();
+	      if(nodeName == "")
+	        nodeName = "node";
+	      var dataName = $("#dataInput");
+	      dataName = dataName.val();
+	      if(dataName == "")
+	        dataName = "name";
 
-		var inputHandle = $("#xmlInput"); 
-		var goButton = $("#goButton");
-		$.get("default.txt").success(function(xml){inputHandle.html(xml)})
-		goButton.on("click",function(){
-			var nodeName = $("#nodeInput");
-			nodeName = nodeName.val();
-			if(nodeName == "")
-				nodeName = "node";
-			var dataName = $("#dataInput");
-			dataName = dataName.val();
-			if(dataName == "")
-				dataName = "name";
-			var cleanData = clean(inputHandle.val());
-			var jsonObj = $.xml2json(cleanData);	
-			var mainNode;
-			dataSet = "";
-			mainNode = getData(jsonObj, nodeName, dataName);
-			getDataSet(mainNode);
-			//document.getElementById("heirarchyOutput").innerHTML=JSON.stringify(mainNode, null, 4);
-		    $("#heirarchyOutput").html(JSON.stringify(mainNode, null, 4))
-			drawData(dataSet);
-			// $("#heirarchyOutput").jsonEditor(dataSet);
-		});
+	      $.get("default.txt").success(function(xml){inputHandle.html(xml)})
 
-		function clean(data){
-		 	data = data.replace(/(\r\n|\n|\r)/gm," ");
-		 	data = data.replace(/\s+/g," ");
-		 	data = data.replace(/^\s+|\s+$/g,'')
-			return data;
-		}
+	      var inputHandle = $("#xmlInput"); 
+	      var goButton = $("#goButton");
+	      var dataSet = "";      
 
-		function getData(jsonObj, nodeName, dataName){
-			var next = new Array();
-			var curNode = new dataNode(jsonObj.name, jsonObj.url, next);
+	      goButton.on("click",function(){
 
-			if(jsonObj.node != null)
-			{
-				var size = jsonObj.node.length;
+	      	document.getElementById("chart").innerHTML = "";
+	        dataSet = "";
+	        var input = inputHandle.val();
+	        var cleanData = clean(inputHandle.val());
+	        var jsonObj = $.xml2json(cleanData);  
+	        var mainNode;
+	        mainNode = getData(jsonObj, nodeName, dataName);
+	        getDataSet(mainNode, true);
+	        hierarchy();
+	        tree();
+
+	        function hierarchy(){
+
+		        var w = 960,
+		          h = 800,
+		          i = 0,
+		          barHeight = 20,
+		          barWidth = w * .8,
+		          duration = 400,
+		          root;
+
+		        var tree = d3.layout.tree()
+		            .size([h, 100]);
+
+		        var diagonal = d3.svg.diagonal()
+		            .projection(function(d) { return [d.y, d.x]; });
+
+		        var vis = d3.select("#chart").append("svg:svg")
+		            .attr("width", w)
+		            .attr("height", h)
+		          .append("svg:g")
+		            .attr("transform", "translate(20,30)");
+
+		        var json = jQuery.parseJSON(dataSet);
+		          json.x0 = 0;
+		          json.y0 = 0;
+		          update(root = json);
+
+		        function update(source) {
+
+		          // Compute the flattened node list. TODO use d3.layout.hierarchy.
+		          var nodes = tree.nodes(root);
+		          
+		          // Compute the "layout".
+		          nodes.forEach(function(n, i) {
+		            n.x = i * barHeight;
+		          });
+		          
+		          // Update the nodes…
+		          var node = vis.selectAll("g.node")
+		              .data(nodes, function(d) { return d.id || (d.id = ++i); });
+		          
+		          var nodeEnter = node.enter().append("svg:g")
+		              .attr("class", "node")
+		              .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+		              .style("opacity", 1e-6);
+
+		          // Enter any new nodes at the parent's previous position.
+		          nodeEnter.append("svg:rect")
+		              .attr("y", -barHeight / 2)
+		              .attr("height", barHeight)
+		              .attr("width", barWidth)
+		              .style("fill", color)
+		              .on("click", click)
+		              .on("dblclick", dblclick);
+		          
+		          nodeEnter.append("svg:text")
+		              .attr("dy", 3.5)
+		              .attr("dx", 5.5)
+		              .text(function(d) { return d.name; });
+		          
+		          // Transition nodes to their new position.
+		          nodeEnter.transition()
+		              .duration(duration)
+		              .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+		              .style("opacity", 1);
+		          
+		          node.transition()
+		              .duration(duration)
+		              .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+		              .style("opacity", 1)
+		            .select("rect")
+		              .style("fill", color);
+		          
+		          // Transition exiting nodes to the parent's new position.
+		          node.exit().transition()
+		              .duration(duration)
+		              .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+		              .style("opacity", 1e-6)
+		              .remove();
+		          
+		          // Update the links…
+		          var link = vis.selectAll("path.link")
+		              .data(tree.links(nodes), function(d) { return d.target.id; });
+		          
+		          // Enter any new links at the parent's previous position.
+		          link.enter().insert("svg:path", "g")
+		              .attr("class", "link")
+		              .attr("d", function(d) {
+		                var o = {x: source.x0, y: source.y0};
+		                return diagonal({source: o, target: o});
+		              })
+		            .transition()
+		              .duration(duration)
+		              .attr("d", diagonal);
+		          
+		          // Transition links to their new position.
+		          link.transition()
+		              .duration(duration)
+		              .attr("d", diagonal);
+		          
+		          // Transition exiting nodes to the parent's new position.
+		          link.exit().transition()
+		              .duration(duration)
+		              .attr("d", function(d) {
+		                var o = {x: source.x, y: source.y};
+		                return diagonal({source: o, target: o});
+		              })
+		              .remove();
+		          
+		          // Stash the old positions for transition.
+		          nodes.forEach(function(d) {
+		            d.x0 = d.x;
+		            d.y0 = d.y;
+		          });
+		        }
+
+				
+
+		        // Toggle children on click.
+		        function click(d) {
+		          if (d.children) {
+		            d._children = d.children;
+		            d.children = null;
+		          } else {
+		            d.children = d._children;
+		            d._children = null;
+		          }
+		          update(d);
+		        }
+
+		        function dblclick(d) {
+		        	window.open(d.url);
+		        }
+
+		        function color(d) {
+		          return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+		        }
+		    }
+
+		    function tree(){
+
+		      	var w = 1960,
+				    h = 1000,
+				    root;
+
+				var force = d3.layout.force()
+				    .linkDistance(80)
+				    .charge(-120)
+				    .gravity(.05)
+				    .size([w, h]);
+
+				var vis = d3.select("#tree").append("svg:svg")
+				    .attr("width", w)
+				    .attr("height", h);
+
+				var json = jQuery.parseJSON(dataSet);
+				root = json;
+				update();
+
+				function update() {
+				  var nodes = flatten(root),
+				      links = d3.layout.tree().links(nodes);
+
+				  // Restart the force layout.
+				  force
+				      .nodes(nodes)
+				      .links(links)
+				      .start();
+
+				  // Update the links…
+				  var link = vis.selectAll("line.link")
+				      .data(links, function(d) { return d.target.id; });
+
+				  // Enter any new links.
+				  link.enter().insert("svg:line", ".node")
+				      .attr("class", "link")
+				      .attr("x1", function(d) { return d.source.x; })
+				      .attr("y1", function(d) { return d.source.y; })
+				      .attr("x2", function(d) { return d.target.x; })
+				      .attr("y2", function(d) { return d.target.y; });
+
+				  // Exit any old links.
+				  link.exit().remove();
+
+				  // Update the nodes…
+				  var node = vis.selectAll("g.node")
+				      .data(nodes, function(d) { return d.id; })
+
+				  node.select("circle")
+				      .style("fill", color);
+
+				  // Enter any new nodes.
+				  var nodeEnter = node.enter().append("svg:g")
+				      .attr("class", "node")
+				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+				      .on("click", click)
+				      .call(force.drag);
+
+				  nodeEnter.append("svg:circle")
+				      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
+				      .style("fill", color);
+
+				  nodeEnter.append("svg:text")
+				      .attr("text-anchor", "middle")
+				      .attr("dy", ".35em")
+				      .text(function(d) { return d.name; });
+
+				  // Exit any old nodes.
+				  node.exit().remove();
+
+				  // Re-select for update.
+				  link = vis.selectAll("line.link");
+				  node = vis.selectAll("g.node");
+
+				  force.on("tick", function() {
+				    link.attr("x1", function(d) { return d.source.x; })
+				        .attr("y1", function(d) { return d.source.y; })
+				        .attr("x2", function(d) { return d.target.x; })
+				        .attr("y2", function(d) { return d.target.y; });
+
+				    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+				  });
+				}
+
+				// Color leaf nodes orange, and packages white or blue.
+				function color(d) {
+				  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+				}
+
+				// Toggle children on click.
+				function click(d) {
+				  if (d.children) {
+				    d._children = d.children;
+				    d.children = null;
+				  } else {
+				    d.children = d._children;
+				    d._children = null;
+				  }
+				  update();
+				}
+
+				// Returns a list of all nodes under the root.
+				function flatten(root) {
+				  var nodes = [], i = 0;
+
+				  function recurse(node) {
+				    if (node.children) node.children.forEach(recurse);
+				    if (!node.id) node.id = ++i;
+				    nodes.push(node);
+				  }
+
+				  recurse(root);
+				  return nodes;
+				}
 			}
-			else{
-				return curNode;
-			}
-			for(var i = 0; i < size; i++)
-			{
-				curNode.mArray[i]=getData(jsonObj.node[i], nodeName, dataName);
-			}
-			return curNode;
-		}
-
-		function dataNode(name, url, array)
-		{
-			this.mName = name;
-			this.mUrl = url;
-			this.mArray = array;
-		}
-
-		function drawData(dataSet)
-		{
-			var Renderer = function(canvas){
-			    var canvas = $(canvas).get(0);
-			    var ctx = canvas.getContext("2d");
-			    var particleSystem;
-			    var graphics = arbor.Graphics(canvas);
-
-			    var _vignette = null
-			    var selected = null,
-			        nearest = null,
-			        _mouseP = null;
-
-			    var that = {
-			      	init:function(system){
-			      	particleSystem = system;
-			      	particleSystem.screenSize(canvas.width, canvas.height);
-	        		particleSystem.screenPadding(80);
-	        		$(window).resize(that.resize)
-       				that.resize()
-	        		that.initMouseHandling();
-	        		},
-
-	        		resize:function(){
-				        canvas.width = $(window).width()
-				        canvas.height = .75* $(window).height()
-				        sys.screen({size:{width:canvas.width, height:canvas.height}})
-				        _vignette = null
-				        that.redraw()
-			      	},
-					        		
-	        		redraw:function(){
-				        graphics.clear();
-
-				        particleSystem.eachEdge(function(edge, pt1, pt2){
-				        	if(edge.source.show * edge.target.show == 0)
-				        		return;
-
-				        	graphics.line(pt1, pt2, {stroke:"black", width:1, alpha:edge.target.show})
-
-					        /*ctx.strokeStyle = "black";
-					        ctx.lineWidth = 1;
-					        ctx.beginPath();
-					        ctx.moveTo(pt1.x, pt1.y);
-					        ctx.lineTo(pt2.x, pt2.y);
-					        ctx.stroke();*/
-				        })
-
-				        particleSystem.eachNode(function(node, pt){
-				        	if(node.alpha === 0)
-				        		return;
-
-					        var label = node.name;
-					        var w = 20+graphics.textWidth(label);
-				            graphics.rect(pt.x-w/2, pt.y-8, w, 20, 4, {fill:"black"})
-				            graphics.text(label, pt.x, pt.y+9, {color:"white", align:"center", font:"Arial", size:12})
-				        })
-				        that._drawVignette();
-				    },
-
-				    _drawVignette:function(){
-				        var w = canvas.width;
-				        var h = canvas.height;
-				        var r = 20;
-
-				        if (!_vignette){
-				          var top = ctx.createLinearGradient(0,0,0,r);
-				          top.addColorStop(0, "#e0e0e0");
-				          top.addColorStop(.7, "rgba(255,255,255,0)");
-
-				          var bot = ctx.createLinearGradient(0,h-r,0,h);
-				          bot.addColorStop(0, "rgba(255,255,255,0)");
-				          bot.addColorStop(1, "white");
-
-				          _vignette = {top:top, bot:bot};
-				        }
-				        
-				        // top
-				        ctx.fillStyle = _vignette.top;
-				        ctx.fillRect(0,0, w,r);
-
-				        // bot
-				        ctx.fillStyle = _vignette.bot;
-				        ctx.fillRect(0,h-r, w,r);
-				    },
-
-				    switchSection:function(newSection){
-				    	var parent = particleSystem.getEdgesFrom(newSection)[0].source;
-				    	var children = $.map(particleSystem.getEdgesFrom(newSection),function(edge){
-				    		return edge.target;
-				    	})
-
-				    	sys.eachNode(function(node){
-				    		if(node.num >= 1)
-				    			return;
-
-				    		var nowVisible = ($.inArray(node, children) >=0);
-				    		var newAlpha = (nowVisible) ? 1 : 0;
-				    		var dt = (nowVisible) ? .5 : .5;
-				    		particleSystem.tweenNode(node, dt, {alpha:newAlpha});
-
-				    		if (newAlpha==1){
-				            node.p.x = parent.p.x + .05*Math.random() - .025
-				            node.p.y = parent.p.y + .05*Math.random() - .025
-				            node.tempMass = .001
-				        	}
-				    	})
-				    },
-
-				    initMouseHandling:function(){
-				        var dragged = null;
-				        var selected = null;
-				        var nearest = null;
-				        var oldmass = 1;
-
-				        var _section = null;
-
-				        var handler = {
-				        	moved:function(e){
-				        		var pos = $(canvas).offset();
-				        		_mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
-				        		nearest = particleSystem.nearest(_mouseP);
-
-				        		if(!nearest.node)
-				        			return false;
+	      });
 
 
-				        	},
+	      function clean(data){
+	        data = data.replace(/(\r\n|\n|\r)/gm," ");
+	        data = data.replace(/\s+/g," ");
+	        data = data.replace(/^\s+|\s+$/g,'')
+	        return data;
+	      }
 
-				          	clicked:function(e){
-					            var pos = $(canvas).offset();
-					            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
-					            dragged = particleSystem.nearest(_mouseP);
+	      function getData(jsonObj, nodeName, dataName){
+	        var next = new Array();
+	        var curNode = new dataNode(jsonObj.name, jsonObj.url, next);
 
-					            if (dragged && dragged.node !== null){
-					              dragged.node.fixed = true;
-					            }
-
-					            $(canvas).bind('mousemove', handler.dragged);
-					            $(window).bind('mouseup', handler.dropped);
-
-					            return false;
-					          	},
-					          	dragged:function(e){
-					            var pos = $(canvas).offset();
-					            var s = arbor.Point(e.pageX-pos.left, e.pageY-pos.top);
-
-					            if (dragged && dragged.node !== null){
-					              var p = particleSystem.fromScreen(s);
-					              dragged.node.p = p;
-					            }
-
-					            return false;
-				          	},
-
-					        dropped:function(e){
-					            if (dragged===null || dragged.node===undefined) return;
-					            if (dragged.node !== null) dragged.node.fixed = false;
-					            dragged.node.tempMass = 1000;
-					            dragged = null;
-					            $(canvas).unbind('mousemove', handler.dragged);
-					            $(window).unbind('mouseup', handler.dropped);
-					            _mouseP = null;
-					            return false;
-					        }
-				        }
-				        $(canvas).mousedown(handler.clicked);
-				    },
-	        	}
-	        	return that;
+	        if(jsonObj.node != null)
+	        {
+	          var size = jsonObj.node.length;
 	        }
-		    var sys = arbor.ParticleSystem(1000, 600, 0.5);
-		    sys.parameters({gravity:true});
-		    sys.renderer = Renderer("#viewport");
-	        dataSet = $.parseJSON(dataSet);
-		    sys.merge({nodes:dataSet.nodes, edges:dataSet.edges});
-		}
+	        else{
+	          return curNode;
+	        }
+	        for(var i = 0; i < size; i++)
+	        {
+	          curNode.mArray[i]=getData(jsonObj.node[i], nodeName, dataName);
+	        }
+	        return curNode;
+	      }
 
-		function getDataSet(dataList)
-		{
-			dataSet ='{"nodes": {';
-			getNodeData(dataList, true);
-			dataSet += '},';
-			dataSet += ' "edges": {';
-			getEdgeData(dataList, true);
-			dataSet += '}}';
-		}
-
-		function getNodeData(dataList, first)
-		{
-			if(first)
-				dataSet += '"' + dataList.mName + '": {}';
-			else
-				dataSet+=', "' + dataList.mName + '": {}';
-			var size = dataList.mArray.length;
-			for(var i = 0; i < size; i++)
-			{
-				getNodeData(dataList.mArray[i], false);
-			}
-			return;
-		}
-
-		function getEdgeData(dataList, first)
-		{
-			if(dataList.mArray.length == 0)
-				return;
-			if(first)
-				dataSet += '"' + dataList.mName + '": {';
-			else
-				dataSet+=', "' + dataList.mName + '": {';
-			var size = dataList.mArray.length;
-			dataSet += '"' + dataList.mArray[0].mName + '": {}';
-
-			for(var i = 1; i < size; i++)
-			{
-				dataSet += ', "' + dataList.mArray[i].mName + '": {}';
-			}
-
-			dataSet += '}';
-
-			for(var j = 0; j < size; j++)
-			{
-				getEdgeData(dataList.mArray[j],false);
-			}
-		}
+	      function dataNode(name, url, array)
+	      {
+	        this.mName = name;
+	        this.mUrl = url;
+	        this.mArray = array;
+	      }
+	      
+	      function getDataSet(dataList, last)
+	      {
+	        dataSet += '{"name": "' + dataList.mName + '", "url": ' + '"' + dataList.mUrl + '"';
+	        var size = dataList.mArray.length;
+	        if(size != 0)
+	        {
+	          dataSet += ',"children": [';
+	          for(var i = 0; i < size; i++)
+	          {
+	            if(i != size - 1)
+	              getDataSet(dataList.mArray[i], false);
+	            else
+	              getDataSet(dataList.mArray[i], true);
+	          }
+	          dataSet += ']';
+	        }
+	        dataSet += '}';
+	        if(!last)
+	        dataSet += ',';
+	        return;
+      	}
 	}); //document ready
 })();

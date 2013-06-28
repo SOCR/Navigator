@@ -8,9 +8,9 @@
     <meta name="description" content="Navigator tool to create spring embedded directory.">
     <meta name="author" content="Patrick Tan">
 
-    <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
+
       body {
         padding-top: 60px;
         padding-bottom: 40px;
@@ -27,6 +27,38 @@
           padding-right: 5px;
         }
       }
+
+      .node rect {
+        cursor: pointer;
+        fill: #fff;
+        fill-opacity: .5;
+        stroke: #3182bd;
+        stroke-width: 1.5px;
+      }
+
+      .node circle {
+        cursor: pointer;
+        stroke: #3182bd;
+        stroke-width: 1.5px;
+      }
+
+      .node text {
+        font: 10px sans-serif;
+        pointer-events: none;
+      }
+
+      line.link {
+        fill: none;
+        stroke: #9ecae1;
+        stroke-width: 1.5px;
+      }
+
+      path.link {
+        fill: none;
+        stroke: #9ecae1;
+        stroke-width: 1.5px;
+      }
+
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -62,28 +94,33 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span6">
-          <div class="hero-unit">
+          <div class="hero-unit" style="height:879px">
             <h1>Navigator Tool</h1>
+            <br>
             <p>Tool creates a spring embedded directory from an xml directory.</p>
+            <br>
             <form action="xml_url">
-              Input XML code: <textarea class="field span12" rows="10" name="inputData" id="xmlInput">
+              Input XML code: <textarea class="field span12" rows="18" name="inputData" id="xmlInput">
                </textarea>
+               <br>
             </form>
+            <br>
             <form action="nodeID">
               Input name of node:<input type="text" class="field span12" rows="1" name="node" id="nodeInput" value="node"></input>
             </form>
+            <br>
             <form action="dataID">
               Input data you with to be displayed:<input type="text" class="field span12" rows="1" name="data" id="dataInput" value="name"></input>
             </form>
+            <br>
             <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
           </div>
         </div><!--/row-->
         <div class="span6">
           <div class="hero-unit">
-            <h1>Heirarchy</h1>
-            <form action="xml_url">
-              <textarea class="field span12" rows="10" name="heirarchy" id="heirarchyOutput"></textarea>
-            </form>
+            <h1>Hierarchy</h1>
+            <div id="chart">
+            </div>
           </div>
         </div><!--/row-->
       </div><!--/span-->
@@ -94,9 +131,8 @@
           <div class="hero-unit">
             <h1>Tree</h1>
             <p>Tool creates a spring embedded directory from an xml directory.</p>
-          </div>
-          <div>
-            <canvas id="viewport" width="1800" height="800"  style="border:1px solid black;"></canvas>
+            <div id="tree" style="text-align:center">
+            </div>
           </div>
         </div><!--/row-->
       </div><!--/span-->
@@ -113,11 +149,13 @@
 
     <script src="js/jquery-1.10.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/navigator.js"></script>
     <script src="js/jquery.xml2json.js" type="text/javascript" language="javascript"></script>
-    <script src="js/arbor.js"></script>
-    <script src="js/arbor-tween.js"></script>
-    <script src="js/arbor-graphics.js"></script>
     <script src="js/jquery.jsoneditor.min.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/d3.layout.js"></script>
+    <script src="js/navigator.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.25.0"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js?1.25.0"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js?1.25.0"></script>
   </body>
 </html>
