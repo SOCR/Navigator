@@ -15,6 +15,8 @@
 
 	      var inputHandle = $("#xmlInput"); 
 	      var goButton = $("#goButton");
+	      var searchButton = $("#searchButton");
+	      var searchInput = $("#searchInput");
 	      var dataSet = "";      
 
 	      goButton.on("click",function(){
@@ -29,8 +31,22 @@
 	        getDataSet(mainNode, true, 35000);
 	        hierarchy();
 	        tree();
+	      });
 
-	        function hierarchy(){
+			function hierarchy(){
+				searchButton.on("click",function(){
+					var found = searchTree(root, searchInput.val());
+					if(found != null){
+						closeAll(root);
+						var current = found;
+						while(current.parent != null){
+							current = current.parent;
+							if(current.children == null)
+								click(current);
+						}
+					}
+					// found.style("fill", "green");
+				});
 
 		        var w = 960,
 		          h = 800,
@@ -57,8 +73,9 @@
 		          json.y0 = 0;
 		          update(root = json);
 
-		        
-
+		        closeAll(root);
+		        click(root);
+ 
 		        function update(source) {
 
 		          // Compute the flattened node list. TODO use d3.layout.hierarchy.
@@ -148,7 +165,12 @@
 		          });
 		        }
 
-				
+		      	function closeAll(d) {
+			      if (d.children) {
+			        d.children.forEach(closeAll);
+			        click(d);
+			      }
+			    }
 
 		        // Toggle children on click.
 		        function click(d) {
@@ -172,6 +194,20 @@
 		    }
 
 		    function tree(){
+		    	searchButton.on("click",function(){
+					var found = searchTree(root, searchInput.val());
+					if(found != null){
+						closeAll(root);
+						var current = found;
+						var test = d3.select(found);
+						while(current.parent != null){
+							current = current.parent;
+							if(current.children == null)
+								click(current);
+						}
+					}
+					// found.style("fill", "green");
+				});
 
 		      	var w = 1960,
 				    h = 1000,
@@ -179,7 +215,7 @@
 
 				var force = d3.layout.force()
 				    .linkDistance(100)
-				    .charge(-120)
+				    .charge(-175)
 				    .gravity(.05)
 				    .size([w, h]);
 
@@ -191,6 +227,9 @@
 				root = json;
 				update();
 
+				closeAll(root);
+		        click(root);
+
 				function update() {
 				  var nodes = flatten(root),
 				      links = d3.layout.tree().links(nodes);
@@ -201,24 +240,9 @@
 				      .links(links)
 				      .start();
 
-				  // Update the links…
-				  var link = vis.selectAll("line.link")
-				      .data(links, function(d) { return d.target.id; });
-
-				  // Enter any new links.
-				  link.enter().insert("svg:line", ".node")
-				      .attr("class", "link")
-				      .attr("x1", function(d) { return d.source.x; })
-				      .attr("y1", function(d) { return d.source.y; })
-				      .attr("x2", function(d) { return d.target.x; })
-				      .attr("y2", function(d) { return d.target.y; });
-
-				  // Exit any old links.
-				  link.exit().remove();
-
 				  // Update the nodes…
 				  var node = vis.selectAll("g.node")
-				      .data(nodes, function(d) { return d.id; })
+				      .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
 				  node.select("circle")
 				      .style("fill", color);
@@ -243,6 +267,21 @@
 				  // Exit any old nodes.
 				  node.exit().remove();
 
+				  // Update the links…
+				  var link = vis.selectAll("line.link")
+				      .data(links, function(d) { return d.target.id; });
+
+				  // Enter any new links.
+				  link.enter().insert("svg:line", ".node")
+				      .attr("class", "link")
+				      .attr("x1", function(d) { return d.source.x; })
+				      .attr("y1", function(d) { return d.source.y; })
+				      .attr("x2", function(d) { return d.target.x; })
+				      .attr("y2", function(d) { return d.target.y; });
+
+				  // Exit any old links.
+				  link.exit().remove();
+
 				  // Re-select for update.
 				  link = vis.selectAll("line.link");
 				  node = vis.selectAll("g.node");
@@ -261,6 +300,13 @@
 				function color(d) {
 				  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
 				}
+
+				function closeAll(d) {
+			      if (d.children) {
+			        d.children.forEach(closeAll);
+			        click(d);
+			      }
+			    }
 
 				// Toggle children on click.
 				function click(d) {
@@ -292,8 +338,6 @@
 				  return nodes;
 				}
 			}
-	      });
-
 
 	      function clean(data){
 	        data = data.replace(/(\r\n|\n|\r)/gm," ");
@@ -348,5 +392,25 @@
 	        dataSet += ',';
 	        return;
       	}
+
+      	function searchTree(element, matchingTitle){
+		     if(element.name == matchingTitle){
+		          return element;
+		     }else if (element.children != null){
+		          var result = null;
+		          for(var i=0; result == null && i < element.children.length; i++){
+		               result = searchTree(element.children[i], matchingTitle);
+		          }
+		          return result;
+		     }
+		     else if (element._children != null){
+		          var result = null;
+		          for(var i=0; result == null && i < element._children.length; i++){
+		               result = searchTree(element._children[i], matchingTitle);
+		          }
+		          return result;
+		      }
+		     return null;
+		}
 	}); //document ready
 })();
