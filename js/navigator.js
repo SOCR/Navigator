@@ -35,7 +35,7 @@
 
 			function hierarchy(){
 				searchButton.on("click",function(){
-					var found = searchTree(root, searchInput.val());
+					var found = searchTree(root, searchInput.val().toLowerCase());
 					if(found != null){
 						closeAll(root);
 						var current = found;
@@ -45,7 +45,6 @@
 								click(current);
 						}
 					}
-					// found.style("fill", "green");
 				});
 
 		        var w = 960,
@@ -102,7 +101,9 @@
 		              .attr("width", barWidth)
 		              .style("fill", color)
 		              .on("click", click)
-		              .on("dblclick", dblclick);
+		              .on("dblclick", dblclick)
+		              .on("mouseover", function(){d3.select(this).style("fill", "green");})
+		              .on("mouseout", function(){d3.select(this).style("fill", color);});
 		          
 		          nodeEnter.append("svg:text")
 		              .attr("dy", 3.5)
@@ -195,7 +196,7 @@
 
 		    function tree(){
 		    	searchButton.on("click",function(){
-					var found = searchTree(root, searchInput.val());
+					var found = searchTree(root, searchInput.val().toLowerCase());
 					if(found != null){
 						closeAll(root);
 						var current = found;
@@ -206,7 +207,6 @@
 								click(current);
 						}
 					}
-					// found.style("fill", "green");
 				});
 
 		      	var w = 1960,
@@ -257,7 +257,9 @@
 
 				  nodeEnter.append("svg:circle")
 				      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 7.5; })
-				      .style("fill", color);
+				      .style("fill", color)
+				      .on("mouseover", function(){d3.select(this).style("fill", "green");})
+		              .on("mouseout", function(){d3.select(this).style("fill", color);});
 
 				  nodeEnter.append("svg:text")
 				      .attr("text-anchor", "middle")
@@ -394,7 +396,7 @@
       	}
 
       	function searchTree(element, matchingTitle){
-		     if(element.name == matchingTitle){
+		     if(element.name.toLowerCase() == matchingTitle){
 		          return element;
 		     }else if (element.children != null){
 		          var result = null;
