@@ -64,8 +64,9 @@
 		        var vis = d3.select("#chart").append("svg:svg")
 		            .attr("width", w)
 		            .attr("height", h)
-		          .append("svg:g")
-		            .attr("transform", "translate(20,30)");
+		          	.append("svg:g")
+		            .attr("transform", "translate(20,30)")
+		            .attr("id", "disChart");
 
 		        var json = jQuery.parseJSON(dataSet);
 		          json.x0 = 0;
@@ -74,7 +75,7 @@
 
 		        closeAll(root);
 		        click(root);
- 
+
 		        function update(source) {
 
 		          // Compute the flattened node list. TODO use d3.layout.hierarchy.
@@ -96,6 +97,7 @@
 
 		          // Enter any new nodes at the parent's previous position.
 		          nodeEnter.append("svg:rect")
+		         	  .attr("class", "bar")
 		              .attr("y", -barHeight / 2)
 		              .attr("height", barHeight)
 		              .attr("width", barWidth)
@@ -200,7 +202,6 @@
 					if(found != null){
 						closeAll(root);
 						var current = found;
-						var test = d3.select(found);
 						while(current.parent != null){
 							current = current.parent;
 							if(current.children == null)
@@ -212,6 +213,8 @@
 		      	var w = 1960,
 				    h = 1000,
 				    root;
+
+			    // var tree = d3.layout.tree()
 
 				var force = d3.layout.force()
 				    .linkDistance(100)
@@ -230,8 +233,10 @@
 				closeAll(root);
 		        click(root);
 
+		        // d3.select("#chart").selectAll("g").style("fill","green")
+
 				function update() {
-				  var nodes = flatten(root),
+				  var nodes = flatten(root, null),
 				      links = d3.layout.tree().links(nodes);
 
 				  // Restart the force layout.
@@ -242,7 +247,7 @@
 
 				  // Update the nodes…
 				  var node = vis.selectAll("g.node")
-				      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+				      .data(nodes, function(d) { return d.id });
 
 				  node.select("circle")
 				      .style("fill", color);
@@ -252,6 +257,7 @@
 				      .attr("class", "node")
 				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
 				      .on("click", click)
+				      // .on("click", zoom(this))
 				      .on("dblclick", dblclick)
 				      .call(force.drag);
 
@@ -327,16 +333,21 @@
 		        }
 
 				// Returns a list of all nodes under the root.
-				function flatten(root) {
+				function flatten(root, above) {
 				  var nodes = [], i = 0;
 
-				  function recurse(node) {
-				    if (node.children) node.children.forEach(recurse);
+				  function recurse(node, above) {
+				    if (node.children)
+				    {
+				    	for(var j = 0; j < node.children.length; j++)
+				    		recurse(node.children[j], node)
+				    }
 				    if (!node.id) node.id = ++i;
+				    node.parent=above;
 				    nodes.push(node);
 				  }
 
-				  recurse(root);
+				  recurse(root, above);
 				  return nodes;
 				}
 			}
