@@ -16,6 +16,8 @@
 	      var inputHandle = $("#xmlInput"); 
 	      var goButton = $("#goButton");
 	      var searchButton = $("#searchButton");
+	      var previousButton = $("#previousButton");
+	      var nextButton = $("#nextButton");
 	      var searchInput = $("#searchInput");
 	      var dataSet = "";      
 
@@ -45,15 +47,30 @@
 								click(current);
 						}
 					}
+					previousButton.on("click",function(){
+					})
+					nextButton.on("click",function(){
+					})
 				});
 
-		        var w = 960,
+	   //      	sizeChange();
+				// d3.select(window)
+		  //   		.on("resize", sizeChange);
+		  //   	function sizeChange() {
+				//     d3.selectAll("rect").attr("transform", "scale(" + $("#chart").width()/788 + ")");
+				//     d3.select("#chart").attr("transform", "scale(" + $("#chart").width()/788 + ")");
+				//     // d3.select("#chart").attr("width", $("#chart").width())
+				//     // $("svg").height($("#chart").width()*0.618);
+				// }
+
+		        var w = $("#chart").width()
 		          h = 800,
 		          i = 0,
 		          barHeight = 20,
 		          barWidth = w * .8,
-		          duration = 400,
-		          root;
+		          duration = 400;
+
+		        var root;
 
 		        var tree = d3.layout.tree()
 		            .size([h, 100]);
@@ -66,7 +83,6 @@
 		            .attr("height", h)
 		          	.append("svg:g")
 		            .attr("transform", "translate(20,30)")
-		            .attr("id", "disChart");
 
 		        var json = jQuery.parseJSON(dataSet);
 		          json.x0 = 0;
@@ -74,7 +90,7 @@
 		          update(root = json);
 
 		        closeAll(root);
-		        click(root);
+		        // click(root);
 
 		        function update(source) {
 
