@@ -36,21 +36,53 @@
 	      });
 
 			function hierarchy(){
+				var found = new Array();
 				searchButton.on("click",function(){
-					var found = searchTree(root, searchInput.val().toLowerCase());
+					found.length = 0;
+					searchTree(root, searchInput.val().toLowerCase(), found);
 					if(found != null){
 						closeAll(root);
-						var current = found;
+						var cur = 0;
+						document.getElementById("shownMatch").innerHTML = found[cur].name;
+						document.getElementById("match").innerHTML = found.length;
+						var current = found[cur];
 						while(current.parent != null){
 							current = current.parent;
 							if(current.children == null)
 								click(current);
 						}
-					}
-					previousButton.on("click",function(){
-					})
-					nextButton.on("click",function(){
-					})
+						previousButton.on("click",function(){
+							if(cur == 0)
+							{
+								cur = found.length - 1;
+							}
+							else
+								cur--;
+							document.getElementById("shownMatch").innerHTML = found[cur].name;
+							closeAll(root);
+							var current = found[cur];
+							while(current.parent != null){
+								current = current.parent;
+								if(current.children == null)
+									click(current);
+							}
+						})
+						nextButton.on("click",function(){
+							if(cur == found.length - 1)
+							{
+								cur = 0;
+							}
+							else
+								cur++;
+							closeAll(root);
+							var current = found[cur];
+							while(current.parent != null){
+								current = current.parent;
+								if(current.children == null)
+									click(current);
+							}
+						})
+						}
 				});
 
 	   //      	sizeChange();
@@ -213,16 +245,45 @@
 		    }
 
 		    function tree(){
+		    	var found = new Array();
 		    	searchButton.on("click",function(){
-					var found = searchTree(root, searchInput.val().toLowerCase());
+					found.length = 0;
+					searchTree(root, searchInput.val().toLowerCase(), found);
 					if(found != null){
 						closeAll(root);
-						var current = found;
+						var cur = 0;
+						var current = found[cur];
 						while(current.parent != null){
 							current = current.parent;
 							if(current.children == null)
 								click(current);
 						}
+						previousButton.on("click",function(){
+							if(cur == 0)
+							{
+								cur = found.length - 1;
+							}
+							closeAll(root);
+							var current = found[cur];
+							while(current.parent != null){
+								current = current.parent;
+								if(current.children == null)
+									click(current);
+							}
+						})
+						nextButton.on("click",function(){
+							if(cur == found.length - 1)
+							{
+								cur = 0;
+							}
+							closeAll(root);
+							var current = found[cur];
+							while(current.parent != null){
+								current = current.parent;
+								if(current.children == null)
+									click(current);
+							}
+						})	
 					}
 				});
 
@@ -422,24 +483,19 @@
 	        return;
       	}
 
-      	function searchTree(element, matchingTitle){
-		     if(element.name.toLowerCase() == matchingTitle){
-		          return element;
-		     }else if (element.children != null){
-		          var result = null;
-		          for(var i=0; result == null && i < element.children.length; i++){
-		               result = searchTree(element.children[i], matchingTitle);
+      	function searchTree(element, matchingTitle, addArray){
+		     if(element.name.toLowerCase().indexOf(matchingTitle) != -1)
+		          addArray.push(element);
+		     if (element.children != null){
+		          for(var i=0; i < element.children.length; i++){
+		               searchTree(element.children[i], matchingTitle, addArray);
 		          }
-		          return result;
 		     }
 		     else if (element._children != null){
-		          var result = null;
-		          for(var i=0; result == null && i < element._children.length; i++){
-		               result = searchTree(element._children[i], matchingTitle);
+		          for(var i=0;  i < element._children.length; i++){
+		               searchTree(element._children[i], matchingTitle, addArray);
 		          }
-		          return result;
 		      }
-		     return null;
 		}
 	}); //document ready
 })();
