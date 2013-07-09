@@ -287,8 +287,8 @@
 					}
 				});
 
-		      	var w = 1960,
-				    h = 1000,
+		      	var w = $("#tree").width(),
+				    h = $("#tree").height()+800,
 				    root;
 
 			    // var tree = d3.layout.tree()
