@@ -19,10 +19,9 @@
 	      var previousButton = $("#previousButton");
 	      var nextButton = $("#nextButton");
 	      var searchInput = $("#searchInput");
-	      var dataSet = "";      
+	      var dataSet = "";
 
 	      goButton.on("click",function(){
-
 	      	document.getElementById("chart").innerHTML = "";
 	        dataSet = "";
 	        var input = inputHandle.val();
@@ -74,6 +73,7 @@
 							}
 							else
 								cur++;
+							document.getElementById("shownMatch").innerHTML = found[cur].name;
 							closeAll(root);
 							var current = found[cur];
 							while(current.parent != null){
@@ -291,8 +291,6 @@
 				    h = $("#tree").height()+800,
 				    root;
 
-			    // var tree = d3.layout.tree()
-
 				var force = d3.layout.force()
 				    .linkDistance(100)
 				    .charge(-175)
@@ -309,8 +307,6 @@
 
 				closeAll(root);
 		        click(root);
-
-		        // d3.select("#chart").selectAll("g").style("fill","green")
 
 				function update() {
 				  var nodes = flatten(root, null),

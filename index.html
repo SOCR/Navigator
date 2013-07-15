@@ -71,75 +71,75 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Navigator</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+    <div class="bs-docs-example">
+      <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+        <li><a href="#chart" data-toggle="tab">Hierarchy</a></li>
+        <li><a href="#tree" data-toggle="tab">Tree</a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="hero-unit">
+                <h1>Navigator Tool</h1>
+                <br>
+                <p>Tool creates a spring embedded directory from an xml directory.</p>
+                <br>
+                <form action="xml_url">
+                  Input XML code: <textarea class="field span12" rows="18" name="inputData" id="xmlInput">
+                   </textarea>
+                   <br>
+                </form>
+                <br>
+                <form action="nodeID">
+                  Input name of node:<input type="text" class="field span12" rows="1" name="node" id="nodeInput" value="node"></input>
+                </form>
+                <form action="dataID">
+                  Input data you with to be displayed:<input type="text" class="field span12" rows="1" name="data" id="dataInput" value="name"></input>
+                </form>
+                <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="chart" style='width:100%'>
+        </div>
+        <div class="tab-pane fade" id="tree" style='width:100%'>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
+<!--     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span6">
-          <div class="hero-unit" style="height:879px">
-            <h1>Navigator Tool</h1>
-            <br>
-            <p>Tool creates a spring embedded directory from an xml directory.</p>
-            <br>
-            <form action="xml_url">
-              Input XML code: <textarea class="field span12" rows="18" name="inputData" id="xmlInput">
-               </textarea>
-               <br>
-            </form>
-            <br>
-            <form action="nodeID">
-              Input name of node:<input type="text" class="field span12" rows="1" name="node" id="nodeInput" value="node"></input>
-            </form>
-            <form action="dataID">
-              Input data you with to be displayed:<input type="text" class="field span12" rows="1" name="data" id="dataInput" value="name"></input>
-            </form>
-            <p><a href="#" class="btn btn-primary btn-large" id="goButton">Start &raquo;</a></p>
-          </div>
-        </div><!--/row-->
-        <div class="span6">
           <div class="hero-unit">
             <h1>Hierarchy</h1>
             <div id="chart">
-            </div>
           </div>
-        </div><!--/row-->
-      </div><!--/span-->
-    </div><!--/row-->
-
+        </div>
+      </div>
+    </div> -->
+<!-- 
     <div class="container-fluid">
       <div class="row-fluid">
           <div class="span12">
             <div class="hero-unit">
               <h1>Tree</h1>
-              <form action="searchID" style="text-align:right"><input type="text" columns="25" rows="1" name="search" id="searchInput" val=""> <a href="#" class="btn btn-primary btn-medium" id="searchButton">Search &raquo;</a> <br> 
-                <a href="#" class="btn btn-primary btn-mini" id="previousButton">Previous</a> <a href="#" class="btn btn-primary btn-mini" id="nextButton">Next</a> <br>
+              <form action="searchID" style="text-align:right"><input type="text" columns="25" rows="1" name="search" id="searchInput" val=""> <a href="#" class="icon-search" id="searchButton"></a>
+                <a href="#" class="icon-arrow-left" id="previousButton"></a> <a href="#" class="icon-arrow-right" id="nextButton"></a> <br>
                 <p>Total Matches: <b id="match"> </b><br> Current Match Shown: <b id="shownMatch"> </b> </p>
               <div id="tree" style="text-align:center">
               </div>
             </div>
-          </div><!--/row-->
-        </div><!--/span-->
-    </div><!--/row-->
+          </div>
+        </div>
+    </div> -->
+
   </div>
 
+  <form action="searchID" style="text-align:center"><input type="text" columns="25" rows="1" name="search" id="searchInput" val=""> <a href="#" class="icon-search" id="searchButton"></a>
+  <a href="#" class="icon-arrow-left" id="previousButton"></a> <a href="#" class="icon-arrow-right" id="nextButton"></a> <br>
+  <p>Total Matches: <b id="match"> </b><br> Current Match Shown: <b id="shownMatch"> </b> </p>
 
       <hr>
 
@@ -149,13 +149,17 @@
 
     </div>
 
-    <script src="js/jquery-1.10.0.min.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.xml2json.js" type="text/javascript" language="javascript"></script>
     <script src="js/jquery.jsoneditor.min.js"></script>
     <script src="js/d3.js"></script>
     <script src="js/d3.layout.js"></script>
     <script src="js/navigator.js"></script>
-    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.25.0"></script>
+    <script src="js/d3.js1.25.0.js"></script>
+
+    <script>
+
+    </script>
   </body>
 </html>
