@@ -89,15 +89,22 @@
 					return false;
 				});
 
-	   //      	sizeChange();
-				// d3.select(window)
-		  //   		.on("resize", sizeChange);
-		  //   	function sizeChange() {
-				//     d3.selectAll("rect").attr("transform", "scale(" + $("#chart").width()/788 + ")");
-				//     d3.select("#chart").attr("transform", "scale(" + $("#chart").width()/788 + ")");
-				//     // d3.select("#chart").attr("width", $("#chart").width())
-				//     // $("svg").height($("#chart").width()*0.618);
-				// }
+				$(window).resize(function() {
+				    waitForFinalEvent(function() {
+				    	removeGraph();
+	                    hierarchy();
+	                }, 500, '0a1edaaa-3f4e-4a23-8bc2-7f6e1a5f35b0');
+	            });
+
+	            var removeGraph = function() {
+		            svg = d3.select('#chart svg');
+		            svg.on('click', null);
+		            svg.on('dblclick', null);
+		            svg.on('mouseover', null);
+		            svg.on('mouseout', null);
+
+		            $('#chart').empty();
+		        }
 
 		        var w = $("#chart").width()
 		          h = 800,
@@ -292,6 +299,23 @@
 					}
 				});
 
+				$(window).resize(function() {
+				    waitForFinalEvent(function() {
+				    	removeGraph();
+	                    tree();
+	                }, 500, '0a1edaaa-3f4e-4a23-8bc2-7f6e1a5f35b1');
+	            });
+
+	            var removeGraph = function() {
+		            svg = d3.select('#tree svg');
+		            svg.on('click', null);
+		            svg.on('dblclick', null);
+		            svg.on('mouseover', null);
+		            svg.on('mouseout', null);
+
+		            $('#tree').empty();
+		        }
+
 		      	var w = $("#tree").width(),
 				    h = $("#tree").height()+800,
 				    root;
@@ -335,7 +359,6 @@
 				      .attr("class", "node")
 				      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
 				      .on("click", click)
-				      // .on("click", zoom(this))
 				      .on("dblclick", dblclick)
 				      .call(force.drag);
 
@@ -498,5 +521,18 @@
 		          }
 		      }
 		}
+
+		var waitForFinalEvent = (function () {
+	        var timers = {};
+	        return function (callback, ms, uniqueId) {
+	            if (!uniqueId) {
+	                uniqueId = 'Don\'t call this twice without a uniqueId';
+	            }
+	            if (timers[uniqueId]) {
+	                clearTimeout (timers[uniqueId]);
+	            }
+	            timers[uniqueId] = setTimeout(callback, ms);
+	        };
+	    })();
 	}); //document ready
 })();
