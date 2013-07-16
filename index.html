@@ -159,7 +159,10 @@
     <script src="js/d3.js1.25.0.js"></script>
 
     <script>
-
+      $("#searchInput").keypress(function(event){
+        if(event.which == 13)
+          event.preventDefault();
+      });
     </script>
   </body>
 </html>

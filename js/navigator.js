@@ -32,6 +32,7 @@
 	        getDataSet(mainNode, true, 35000);
 	        hierarchy();
 	        tree();
+	        return false;
 	      });
 
 			function hierarchy(){
@@ -65,6 +66,7 @@
 								if(current.children == null)
 									click(current);
 							}
+							return false;
 						})
 						nextButton.on("click",function(){
 							if(cur == found.length - 1)
@@ -81,8 +83,10 @@
 								if(current.children == null)
 									click(current);
 							}
+							return false;
 						})
 						}
+					return false;
 				});
 
 	   //      	sizeChange();
@@ -149,6 +153,7 @@
 		              .attr("y", -barHeight / 2)
 		              .attr("height", barHeight)
 		              .attr("width", barWidth)
+		              .attr("title", function(d) { return d.name; })
 		              .style("fill", color)
 		              .on("click", click)
 		              .on("dblclick", dblclick)
