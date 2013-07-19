@@ -32,6 +32,13 @@
 	        getDataSet(mainNode, true, 35000);
 	        hierarchy();
 	        tree();
+
+	        var tabs = $('#tabs .nav-tabs > li'),
+	            active = tabs.filter('.active'),
+	            next = active.next('li').next('li'),
+	            toClick = next.find('a');
+
+	        toClick.trigger('click');
 	        return false;
 	      });
 
