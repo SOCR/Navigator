@@ -45,7 +45,7 @@
 			function hierarchy(){
 				var found = new Array();
 				searchButton.on("click",function(){
-					found.length = 0;
+					found = [];
 					searchTree(root, searchInput.val().toLowerCase(), found);
 					if(found != null){
 						closeAll(root);
@@ -266,7 +266,7 @@
 		    function tree(){
 		    	var found = new Array();
 		    	searchButton.on("click",function(){
-					found.length = 0;
+					found = [];
 					searchTree(root, searchInput.val().toLowerCase(), found);
 					if(found != null){
 						closeAll(root);
@@ -282,6 +282,8 @@
 							{
 								cur = found.length - 1;
 							}
+							else
+								cur--;
 							closeAll(root);
 							var current = found[cur];
 							while(current.parent != null){
@@ -295,6 +297,8 @@
 							{
 								cur = 0;
 							}
+							else
+								cur++;
 							closeAll(root);
 							var current = found[cur];
 							while(current.parent != null){

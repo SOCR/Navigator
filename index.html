@@ -129,18 +129,12 @@
 
     <script>
       $("#searchInput").keypress(function(event){
-        if(event.which == 13)
+        if(event.which == 13){
+          $("#searchButton").trigger("click");
           event.preventDefault();
+        }
       });
 
-              var tabCarousel = setInterval(function() {
-            var tabs = $('#tabs .nav-tabs > li'),
-                active = tabs.filter('.active'),
-                next = active.next('li'),
-                toClick = next.find('a');
-
-            toClick.trigger('click');
-        }, 3000);
     </script>
   </body>
 </html>
