@@ -127,9 +127,17 @@
     <script src="js/d3.js1.25.0.js"></script>
 
     <script>
-      $("#searchInput").keypress(function(event){
+      $("#searchInput").keydown(function(event){
         if(event.which == 13){
           $("#searchButton").trigger("click");
+          event.preventDefault();
+        }
+        if(event.which == 37){
+          $("#previousButton").trigger("click");
+          event.preventDefault();
+        }
+        if(event.which == 39){
+          $("#nextButton").trigger("click");
           event.preventDefault();
         }
       });
