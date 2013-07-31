@@ -13,7 +13,7 @@ http.createServer(function(req,res){
 			type=temp.path.split(".")[1];
 		}
 		else{
-			file=fs.readFileSync("index.html");
+			file=fs.readFileSync("SOCR_D3_VIEWER.html");
 			type="html"
 		}	
 		res.writeHead(200,{'Content-Type':'text/'+type});

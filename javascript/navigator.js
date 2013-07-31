@@ -2,99 +2,12 @@
 
 (function(){
 	$(document).ready(function(){
-		var nodeName = $("#nodeInput");
-    	nodeName = nodeName.val();
-	      if(nodeName == "")
-	        nodeName = "node";
-	      var dataName = $("#dataInput");
-	      dataName = dataName.val();
-	      if(dataName == "")
-	        dataName = "name";
 
-	      $.get("default.txt").success(function(xml){inputHandle.html(xml)})
-
-	      var inputHandle = $("#xmlInput"); 
-	      var goButton = $("#goButton");
-	      var searchButton = $("#searchButton");
-	      var previousButton = $("#previousButton");
-	      var nextButton = $("#nextButton");
-	      var searchInput = $("#searchInput");
-	      var dataSet = "";
-
-	      goButton.on("click",function(){
-	      	document.getElementById("chart").innerHTML = "";
-	        dataSet = "";
-	        var input = inputHandle.val();
-	        var cleanData = clean(inputHandle.val());
-	        var jsonObj = $.xml2json(cleanData);  
-	        var mainNode;
-	        mainNode = getData(jsonObj, nodeName, dataName);
-	        getDataSet(mainNode, true, 35000);
 	        hierarchy();
 	        tree();
 
-	        var tabs = $('#tabs .nav-tabs > li'),
-	            active = tabs.filter('.active'),
-	            next = active.next('li').next('li'),
-	            toClick = next.find('a');
-
-	        toClick.trigger('click');
-	        return false;
-	      });
-
 			function hierarchy(){
 				var found = new Array();
-				searchButton.on("click",function(){
-					found = [];
-					searchTree(root, searchInput.val().toLowerCase(), found);
-					if(found != null){
-						closeAll(root);
-						var cur = 0;
-						document.getElementById("shownMatch").innerHTML = found[cur].name;
-						document.getElementById("match").innerHTML = found.length;
-						var current = found[cur];
-						while(current.parent != null){
-							current = current.parent;
-							if(current.children == null)
-								click(current);
-						}
-						previousButton.on("click",function(){
-							if(cur == 0)
-							{
-								cur = found.length - 1;
-							}
-							else
-								cur--;
-							document.getElementById("shownMatch").innerHTML = found[cur].name;
-							closeAll(root);
-							var current = found[cur];
-							while(current.parent != null){
-								current = current.parent;
-								if(current.children == null)
-									click(current);
-							}
-							return false;
-						})
-						nextButton.on("click",function(){
-							if(cur == found.length - 1)
-							{
-								cur = 0;
-							}
-							else
-								cur++;
-							document.getElementById("shownMatch").innerHTML = found[cur].name;
-							closeAll(root);
-							var current = found[cur];
-							while(current.parent != null){
-								current = current.parent;
-								if(current.children == null)
-									click(current);
-							}
-							return false;
-						})
-						}
-					return false;
-				});
 
 				$(window).resize(function() {
 				    waitForFinalEvent(function() {
@@ -114,10 +27,10 @@
 		        }
 
 		        var w = $("#chart").width()
-		          h = 800,
+		          h = $("#chart").height(),
 		          i = 0,
-		          barHeight = 20,
-		          barWidth = w * .8,
+		          barHeight = 15,
+		          barWidth = w * .6,
 		          duration = 400;
 
 		        var root;
@@ -134,13 +47,14 @@
 		          	.append("svg:g")
 		            .attr("transform", "translate(20,30)")
 
-		        var json = jQuery.parseJSON(dataSet);
-		          json.x0 = 0;
-		          json.y0 = 0;
-		          update(root = json);
+	              d3.json("SOCR_HyperTree.json", function(json) {
+			        root = json;
+			        update(root);
+			        closeAll(root);
+		      		// click(root);
+			      });
 
-		        closeAll(root);
-		        // click(root);
+
 
 		        function update(source) {
 
@@ -265,50 +179,6 @@
 
 		    function tree(){
 		    	var found = new Array();
-		    	searchButton.on("click",function(){
-					found = [];
-					searchTree(root, searchInput.val().toLowerCase(), found);
-					if(found != null){
-						closeAll(root);
-						var cur = 0;
-						var current = found[cur];
-						while(current.parent != null){
-							current = current.parent;
-							if(current.children == null)
-								click(current);
-						}
-						previousButton.on("click",function(){
-							if(cur == 0)
-							{
-								cur = found.length - 1;
-							}
-							else
-								cur--;
-							closeAll(root);
-							var current = found[cur];
-							while(current.parent != null){
-								current = current.parent;
-								if(current.children == null)
-									click(current);
-							}
-						})
-						nextButton.on("click",function(){
-							if(cur == found.length - 1)
-							{
-								cur = 0;
-							}
-							else
-								cur++;
-							closeAll(root);
-							var current = found[cur];
-							while(current.parent != null){
-								current = current.parent;
-								if(current.children == null)
-									click(current);
-							}
-						})	
-					}
-				});
 
 				$(window).resize(function() {
 				    waitForFinalEvent(function() {
@@ -328,12 +198,12 @@
 		        }
 
 		      	var w = $("#tree").width(),
-				    h = $("#tree").height()+800,
+				    h = $("#tree").height(),
 				    root;
 
 				var force = d3.layout.force()
-				    .linkDistance(100)
-				    .charge(-175)
+				    .linkDistance(75)
+				    .charge(-125)
 				    .gravity(.05)
 				    .size([w, h]);
 
@@ -341,12 +211,16 @@
 				    .attr("width", w)
 				    .attr("height", h);
 
-				var json = jQuery.parseJSON(dataSet);
-				root = json;
-				update();
+				// var json = jQuery.parseJSON(dataSet);
+				// root = json;
+				// update();
 
-				closeAll(root);
-		        click(root);
+			      d3.json("SOCR_HyperTree.json", function(json) {
+			        root = json;
+			        update();
+					closeAll(root);
+			        click(root);
+			      });
 
 				function update() {
 				  var nodes = flatten(root, null),
@@ -374,7 +248,7 @@
 				      .call(force.drag);
 
 				  nodeEnter.append("svg:circle")
-				      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 7.5; })
+				      .attr("r", function(d) { return Math.sqrt(d.size) / 20 || 4.5; })
 				      .style("fill", color)
 				      .on("mouseover", function(){d3.select(this).style("fill", "green");})
 		              .on("mouseout", function(){d3.select(this).style("fill", color);});
@@ -463,60 +337,6 @@
 				  return nodes;
 				}
 			}
-
-	      function clean(data){
-	        data = data.replace(/(\r\n|\n|\r)/gm," ");
-	        data = data.replace(/\s+/g," ");
-	        data = data.replace(/^\s+|\s+$/g,'')
-	        return data;
-	      }
-
-	      function getData(jsonObj, nodeName, dataName){
-	        var next = new Array();
-	        var curNode = new dataNode(jsonObj.name, jsonObj.url, next);
-
-	        if(jsonObj.node != null)
-	        {
-	          var size = jsonObj.node.length;
-	        }
-	        else{
-	          return curNode;
-	        }
-	        for(var i = 0; i < size; i++)
-	        {
-	          curNode.mArray[i]=getData(jsonObj.node[i], nodeName, dataName);
-	        }
-	        return curNode;
-	      }
-
-	      function dataNode(name, url, array)
-	      {
-	        this.mName = name;
-	        this.mUrl = url;
-	        this.mArray = array;
-	      }
-	      
-	      function getDataSet(dataList, last, setSize)
-	      {
-	        dataSet += '{"name": "' + dataList.mName + '", "url": ' + '"' + dataList.mUrl + '", "size": ' + setSize;
-	        var size = dataList.mArray.length;
-	        if(size != 0)
-	        {
-	          dataSet += ',"children": [';
-	          for(var i = 0; i < size; i++)
-	          {
-	            if(i != size - 1)
-	              getDataSet(dataList.mArray[i], false, setSize * 2 / 3);
-	            else
-	              getDataSet(dataList.mArray[i], true, setSize * 2 / 3);
-	          }
-	          dataSet += ']';
-	        }
-	        dataSet += '}';
-	        if(!last)
-	        dataSet += ',';
-	        return;
-      	}
 
       	function searchTree(element, matchingTitle, addArray){
 		     if(element.name.toLowerCase().indexOf(matchingTitle) != -1)
