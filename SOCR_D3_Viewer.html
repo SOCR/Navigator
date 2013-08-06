@@ -94,6 +94,12 @@
 <div id="wrapper-content">
 <div id="content" align="right">
 
+<a href="#" id="searchButton"></a>
+<form style="text-align: right; margin-right:5px">
+  <p> Search: <input type="text" id="searchInput"></input></p>
+</form>
+<a href="#" class="icon-arrow-left" id="previousButton"></a> <a href="#" class="icon-arrow-right" id="nextButton"></a>
+        <p style="margin-right:5px">Total Matches: <b id="match"> </b> Current Match Shown: <b id="shownMatch"> </b> </p>
 <!-- Start of Navigator code -->
 
 <div alt="Hyperbolic Wheel SOCR Resource Navigator"
@@ -137,5 +143,22 @@ since 2002
  title="SOCR Email" src="http://www.socr.ucla.edu/SOCR_Email.png"
  style="border: 0px solid ;"></a></div>
 </div>
+<script>
+      $("#searchInput").keydown(function(event){
+        if(event.which == 13){
+          $("#searchButton").trigger("click");
+          event.preventDefault();
+        }
+        if(event.which == 37){
+          $("#previousButton").trigger("click");
+          event.preventDefault();
+        }
+        if(event.which == 39){
+          $("#nextButton").trigger("click");
+          event.preventDefault();
+        }
+      });
+
+    </script>
 </body>
 </html>
