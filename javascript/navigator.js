@@ -95,10 +95,6 @@
 				    .attr("width", w)
 				    .attr("height", h);
 
-				// var json = jQuery.parseJSON(dataSet);
-				// root = json;
-				// update();
-
 			      d3.json("SOCR_HyperTree.json", function(json) {
 			        root = json;
 			        update();
@@ -132,7 +128,7 @@
 				      .call(force.drag);
 
 				  nodeEnter.append("svg:circle")
-				      .attr("r", function(d) { return Math.sqrt(d.size) / 20 || 4.5; })
+				      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 7.5; })
 				      .style("fill", color)
 				      .on("mouseover", function(){d3.select(this).style("fill", "green");})
 		              .on("mouseout", function(){d3.select(this).style("fill", color);});
