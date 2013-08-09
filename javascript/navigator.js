@@ -82,7 +82,7 @@
 		        }
 
 		      	var w = $("#tree").width(),
-				    h = $("#tree").height(),
+				    h = 650,
 				    root;
 
 				var force = d3.layout.force()
