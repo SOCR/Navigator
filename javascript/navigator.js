@@ -62,7 +62,56 @@
 						}
 					return false;
 				});
-
+				document.getElementById('menu').onchange = function() {
+				    if (this.options[this.selectedIndex].value === 'SOCR_HyperTree.json') {
+				        d3.json("xml/SOCR_HyperTree.json", function(json) {
+					        root = json;
+					        update(root);
+							closeAll(root);
+					        click(root);
+					      });
+				    }
+				    if (this.options[this.selectedIndex].value === 'FileFormatTypes_HyperTree.json') {
+				        d3.json("xml/FileFormatTypes_HyperTree.json", function(json) {
+					        root = json;
+					        update(root);
+							closeAll(root);
+					        click(root);
+					      });
+				    }
+				    if (this.options[this.selectedIndex].value === 'GAMS_NIST_Resources.json') {
+				        d3.json("xml/GAMS_NIST_Resources.json", function(json) {
+					        root = json;
+					        update(root);
+							closeAll(root);
+					        click(root);
+					      });
+				    }
+				    if (this.options[this.selectedIndex].value === 'iTools_TR_Resources.json') {
+				        d3.json("xml/iTools_TR_Resources.json", function(json) {
+					        root = json;
+					        update(root);
+							closeAll(root);
+					        click(root);
+					      });
+				    }
+				    if (this.options[this.selectedIndex].value === 'NIF_TR_Resources.json') {
+				        d3.json("xml/NIF_TR_Resources.json", function(json) {
+					        root = json;
+					        update(root);
+							closeAll(root);
+					        click(root);
+					      });
+				    }
+				    if (this.options[this.selectedIndex].value === 'OID_IIP_TR_Resources.json') {
+				        d3.json("xml/OID_IIP_TR_Resources.json", function(json) {
+					        root = json;
+					        update(root);
+							closeAll(root);
+					        click(root);
+					      });
+				    }
+				};
 				$(window).resize(function() {
 				    waitForFinalEvent(function() {
 				    	removeGraph();
@@ -101,7 +150,7 @@
 		          	.append("svg:g")
 		            .attr("transform", "translate(20,30)")
 
-		        d3.json("SOCR_HyperTree.json", function(json) {
+		        d3.json("xml/SOCR_HyperTree.json", function(json) {
 			        root = json;
 			        update(root);
 					closeAll(root);
