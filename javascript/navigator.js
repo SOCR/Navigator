@@ -81,7 +81,7 @@
 		        }
 
 		        var w = $("#chart").width()
-		          h = 800,
+		          h = 650,
 		          i = 0,
 		          barHeight = 20,
 		          barWidth = w * .8,
