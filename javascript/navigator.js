@@ -1,6 +1,7 @@
 
 
 (function(){
+	numBars = 0;
 	$(document).ready(function(){
 
 			var searchButton = $("#searchButton");
@@ -130,7 +131,7 @@
 		        }
 
 		        var w = $("#chart").width()
-		          h = 650,
+		          h = 0,
 		          i = 0,
 		          barHeight = 20,
 		          barWidth = w * .8,
@@ -158,7 +159,7 @@
 			      });
 
 		        function update(source) {
-
+					d3.select("svg").attr("height", barHeight * numBars + 30)
 		          // Compute the flattened node list. TODO use d3.layout.hierarchy.
 		          var nodes = tree.nodes(root);
 
@@ -255,14 +256,17 @@
 			        d.children.forEach(closeAll);
 			        click(d);
 			      }
+			      numBars = 1;
 			    }
 
 		        // Toggle children on click.
 		        function click(d) {
 		          if (d.children) {
+		          	numBars-=d.children.length;
 		            d._children = d.children;
 		            d.children = null;
 		          } else {
+		          	numBars+=d._children.length;
 		            d.children = d._children;
 		            d._children = null;
 		          }
