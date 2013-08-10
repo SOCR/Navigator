@@ -8,6 +8,8 @@
   <meta name="author" content="SOCR">
   <link rel="stylesheet" type="text/css"
  href="htmls/SOCR_Tools_style.css">
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
   <style type="text/css">
 
       body {
@@ -109,7 +111,7 @@
   <form style="margin-right:5px; text-align:right">
     <p> Search: <input type="text" id="searchInput"></input></p>
   </form>
-  <a href="#" class="icon-arrow-left" id="previousButton"></a> <a href="#" class="icon-arrow-right" id="nextButton"></a>
+  <a href="#" id="previousButton"></a> <a href="#" id="nextButton"></a>
   <p style="margin-right:5px; text-align:right">Total Matches: <b id="match"> </b> Current Match Shown: <b id="shownMatch"> </b> </p>
 
   <form style="margin-right:5px; text-align:right">
@@ -122,7 +124,6 @@
   <option value="OID_IIP_TR_Resources.json">OID IIP TR</option>
   </select>
   </form>
-</div>
 
 <!-- End of Navigator code -->
 </div>
@@ -150,6 +151,7 @@ var sc_security="038e9ac4";
 <script src="javascript/d3.layout.js"></script>
 <script src="javascript/navigator.js"></script>
 <script src="javascript/d3.js1.25.0.js"></script>
+
 <div id="wrapper-footer">
 <div id="footer"><a href="http://www.socr.ucla.edu/">SOCR Resource</a>
 Visitor number <img src="http://counter.digits.com/wc/-d/4/SOCR"
@@ -178,7 +180,6 @@ since 2002
 
     var textareaWidth = document.getElementById("chart").scrollWidth;
     document.getElementById("wrapper").style.width = textareaWidth + "px";
-
     </script>
 </body>
 </html>
