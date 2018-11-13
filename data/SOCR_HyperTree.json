@@ -2658,6 +2658,31 @@
  						"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News",
  						"size": 15555,
  						"children": [{
+ 								"name": "2019 News",
+ 								"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2019",
+ 								"size": 6913
+ 							},
+ 							{
+ 								"name": "2018 News",
+ 								"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2018",
+ 								"size": 6913
+ 							},
+ 							{
+ 								"name": "2017 News",
+ 								"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2017",
+ 								"size": 6913
+ 							},
+ 							{
+ 								"name": "2016 News",
+ 								"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2016",
+ 								"size": 6913
+ 							},
+ 							{
+ 								"name": "2015 News",
+ 								"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2015",
+ 								"size": 6913
+ 							},
+ 							{
  								"name": "2014 News",
  								"url": "http://wiki.stat.ucla.edu/socr/index.php/SOCR_News#2014",
  								"size": 6913
