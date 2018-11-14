@@ -1508,6 +1508,13 @@
  							}
  						]
  					},
+ 					
+ 					{
+ 								"name": "DSPA: Data Science and Predictive Analytics Book",
+ 								"url": "http://DSPA.predictive.space",
+ 								"size": 30370
+ 					},
+ 				
  					{
  						"name": "SOCR AP Statistics EBook",
  						"url": "http://wiki.stat.ucla.edu/socr/index.php/EBook",
